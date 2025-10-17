@@ -1,38 +1,4 @@
-/* ===== ARTICLE TEMPLATE STYLES ===== */
 
-:root {
-  --primary-color: #1a1a3e;
-  --secondary-color: #4a5fa3;
-  --accent-color: #7c3aed;
-  --dark-purple: #2d1b4e;
-  --dark-blue: #1e3a5f;
-  --text-color: #333;
-  --light-bg: #f8f9fa;
-  --white: #ffffff;
-  --border-color: #e0e0e0;
-  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
-}
-
-/* ===== RESET & GLOBAL ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: var(--text-color);
-  background-color: var(--light-bg);
-  width: 100%;
-  overflow-x: hidden;
-}
 
 /* ===== HEADER STYLES ===== */
 .top-header {
