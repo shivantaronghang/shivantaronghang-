@@ -1,35 +1,3 @@
-// Reading progress bar
-const progressBar = document.querySelector('.read-progress .bar');
-window.addEventListener('scroll', () => {
-  const article = document.querySelector('.article-main');
-  if (!article) return;
-  const scrollTop = window.scrollY;
-  const docHeight = article.scrollHeight - window.innerHeight;
-  const scrolled = Math.min(Math.max(scrollTop, 0), docHeight);
-  const percent = docHeight > 0 ? (scrolled / docHeight) * 100 : 0;
-  progressBar.style.width = percent + '%';
-});
-
-// Back-to-top button
-const backToTop = document.getElementById('backToTop');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) backToTop.classList.add('show');
-  else backToTop.classList.remove('show');
-});
-backToTop.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// TOC toggle (for mobile)
-const tocToggle = document.querySelector('.toc-toggle');
-const tocList = document.getElementById('toc-list');
-if (tocToggle && tocList) {
-  tocToggle.addEventListener('click', () => {
-    const expanded = tocToggle.getAttribute('aria-expanded') === 'true';
-    tocToggle.setAttribute('aria-expanded', !expanded);
-    tocList.hidden = expanded;
-  });
-}
 /* ===== ARTICLE TEMPLATE JAVASCRIPT ===== */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -38,7 +6,36 @@ document.addEventListener('DOMContentLoaded', function() {
   initReadingProgress();
   initNavMenu();
   initActiveLinks();
+  fixResponsiveIssues();
 });
+
+/* ===== FIX RESPONSIVE & OVERFLOW ISSUES ===== */
+function fixResponsiveIssues() {
+  // Ensure no horizontal overflow
+  document.documentElement.style.width = '100%';
+  document.documentElement.style.overflowX = 'hidden';
+  document.body.style.width = '100%';
+  document.body.style.overflowX = 'hidden';
+
+  // Fix all main sections
+  const mainSections = document.querySelectorAll(
+    'header, main, footer, section, article'
+  );
+  mainSections.forEach(section => {
+    if (section.classList.contains('article-main') ||
+        section.classList.contains('article-content') ||
+        section.classList.contains('research-container')) {
+      section.style.width = '100%';
+      section.style.boxSizing = 'border-box';
+    }
+  });
+
+  // Fix viewport on window resize
+  window.addEventListener('resize', function() {
+    document.documentElement.style.width = '100%';
+    document.body.style.width = '100%';
+  });
+}
 
 /* ===== TABLE OF CONTENTS SMOOTH OPEN/CLOSE ===== */
 function initTOC() {
@@ -48,8 +45,10 @@ function initTOC() {
 
   if (!tocToggle || !tocNav) return;
 
-  // Toggle button
-  tocToggle.addEventListener('click', function() {
+  // Toggle button with smooth animation
+  tocToggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
     const isExpanded = this.getAttribute('aria-expanded') === 'true';
     
     if (isExpanded) {
@@ -64,15 +63,22 @@ function initTOC() {
     link.addEventListener('click', function(e) {
       e.preventDefault();
       const targetId = this.getAttribute('href');
+      
+      // Close TOC with slight delay for smooth effect
       closeTOC();
       
       // Smooth scroll to section
       setTimeout(() => {
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const headerHeight = 200;
+          const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+          window.scrollTo({
+            top: elementPosition - headerHeight,
+            behavior: 'smooth'
+          });
         }
-      }, 150);
+      }, 200);
     });
   });
 
@@ -83,6 +89,13 @@ function initTOC() {
       tocToggle.contains(e.target);
     
     if (!isClickInside && tocNav.classList.contains('open')) {
+      closeTOC();
+    }
+  });
+
+  // Close TOC on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && tocNav.classList.contains('open')) {
       closeTOC();
     }
   });
@@ -154,7 +167,8 @@ function initNavMenu() {
   
   if (!hamburger || !navLinks) return;
 
-  hamburger.addEventListener('click', function() {
+  hamburger.addEventListener('click', function(e) {
+    e.stopPropagation();
     navLinks.classList.toggle('active');
   });
 
@@ -171,7 +185,14 @@ function initNavMenu() {
     const isClickInsideNav = navLinks.contains(e.target);
     const isClickOnHamburger = hamburger.contains(e.target);
     
-    if (!isClickInsideNav && !isClickOnHamburger) {
+    if (!isClickInsideNav && !isClickOnHamburger && navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+    }
+  });
+
+  // Close menu on Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && navLinks.classList.contains('active')) {
       navLinks.classList.remove('active');
     }
   });
@@ -235,7 +256,7 @@ function showNotification(message) {
   const notification = document.createElement('div');
   notification.style.cssText = `
     position: fixed;
-    top: 100px;
+    top: 120px;
     right: 20px;
     background-color: #27ae60;
     color: white;
@@ -245,6 +266,7 @@ function showNotification(message) {
     font-size: 14px;
     z-index: 300;
     animation: slideIn 0.3s ease;
+    max-width: 300px;
   `;
   
   notification.textContent = message;
@@ -283,10 +305,6 @@ style.textContent = `
     }
   }
 
-  .nav-links.active {
-    animation: slideDown 0.3s ease;
-  }
-
   @keyframes slideDown {
     from {
       opacity: 0;
@@ -297,5 +315,29 @@ style.textContent = `
       transform: translateY(0);
     }
   }
+
+  .nav-links.active {
+    animation: slideDown 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    @keyframes slideIn {
+      from {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  }
 `;
 document.head.appendChild(style);
+
+/* ===== PREVENT DOUBLE SCROLLBAR ===== */
+document.addEventListener('DOMContentLoaded', function() {
+  if (document.body.scrollHeight <= window.innerHeight) {
+    document.documentElement.style.overflowY = 'auto';
+  }
+});
