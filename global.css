@@ -213,9 +213,16 @@ body {
 }
 
 .hamburger {
-  display: none;
+  display: flex;
   flex-direction: column;
   cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.hamburger:hover {
+  background-color: rgba(30, 58, 138, 0.1);
 }
 
 .hamburger span {
@@ -225,6 +232,73 @@ body {
   margin: 4px 0;
   border-radius: 2px;
   transition: all 0.3s;
+}
+
+/* Hamburger active state */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Navigation dropdown for desktop */
+.nav-menu {
+  position: relative;
+}
+
+.nav-links {
+  list-style: none;
+  display: none;
+  gap: 25px;
+  align-items: center;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: #FFFFFF;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  min-width: 250px;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.nav-links.active {
+  display: flex;
+}
+
+.nav-links li {
+  width: 100%;
+  text-align: left;
+  margin: 5px 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #1E3A8A;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.nav-links li a:hover {
+  color: #F59E0B;
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+/* Remove the underline effect for dropdown */
+.nav-links li a::after {
+  display: none;
 }
 
 /* ===== CARD BORDERS ===== */
@@ -450,30 +524,9 @@ body {
   }
 
   .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 80px;
     right: 20px;
-    background: #FFFFFF;
+    min-width: 200px;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    max-height: 70vh;
-    overflow-y: auto;
-    width: 200px;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links li {
-    margin: 10px 0;
-  }
-
-  .hamburger {
-    display: flex;
   }
 
   .section-title {
@@ -494,4 +547,3 @@ body {
     gap: 10px;
   }
 }
-
