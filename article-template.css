@@ -252,24 +252,6 @@ section h2 {
 
 
 
-button#downloadBtn {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #0078d7;
-  color: #fff;
-  border: none;
-  padding: 12px 18px;
-  border-radius: 25px;
-  font-size: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-button#downloadBtn:hover {
-  background: #0053a6;
-}
 
 
 /* Responsive Design */
@@ -299,4 +281,98 @@ button#downloadBtn:hover {
   }
 }
 
+
+.fixed-action-buttons {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none; /* Allow only button clicks */
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.fixed-action-buttons button {
+  pointer-events: auto;
+  padding: 12px 18px;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+/* Back to Top button on left */
+.back-to-top {
+  background-color: #007be5;
+  color: white;
+  width: 45px;
+  height: 45px;
+  font-size: 24px;
+  border-radius: 50%;
+  line-height: 45px;
+  text-align: center;
+}
+
+.back-to-top:hover {
+  background-color: #004aad;
+}
+
+/* Download button on right */
+.download-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.download-btn:hover {
+  background-color: #1e7e34;
+}
+
+
+/* Desktop & larger screens: buttons fixed on opposite sides */
+.fixed-action-buttons {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.fixed-action-buttons button {
+  pointer-events: auto;
+  padding: 12px 18px;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+  min-width: 45px;
+}
+
+/* Mobile: stack buttons horizontally centered with spacing */
+@media (max-width: 600px) {
+  .fixed-action-buttons {
+    justify-content: center;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .fixed-action-buttons button {
+    flex: 1 1 auto;
+    min-width: unset;
+    max-width: 140px;
+  }
+}
 
