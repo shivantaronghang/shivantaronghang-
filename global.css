@@ -459,6 +459,8 @@ body {
   color: #F59E0B;
 }
 
+
+
 /* Desktop screens ke liye */
 @media (min-width: 768px) {
   .footer-newsletter form {
