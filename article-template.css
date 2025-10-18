@@ -1,5 +1,5 @@
 /* ===================================
-   ARTICLE TEMPLATE CSS
+   ARTICLE TEMPLATE CSS - FIXED LAYOUT
    =================================== */
 
 /* Reset and Base Styles */
@@ -36,18 +36,23 @@ body {
   transition: width 0.3s ease;
 }
 
-/* Hero Section */
+/* Hero Section - FIXED FULL WIDTH */
 .article-hero {
   background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
   color: white;
-  padding: 120px 20px 80px;
+  padding: 120px 0 80px;
   text-align: center;
   margin-bottom: 40px;
+  width: 100%;
+  position: relative;
+  left: 0;
+  right: 0;
 }
 
 .hero-content {
   max-width: 800px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .hero-title {
@@ -74,7 +79,7 @@ body {
   margin: 0 10px;
 }
 
-/* Main Article Layout */
+/* Main Article Layout - FIXED WIDTH ISSUE */
 .article-main {
   max-width: 1200px;
   margin: 0 auto;
@@ -82,9 +87,10 @@ body {
   display: flex;
   gap: 40px;
   position: relative;
+  width: 100%;
 }
 
-/* Table of Contents Sidebar */
+/* Table of Contents Sidebar - FIXED FOR DESKTOP VISIBILITY */
 .article-toc {
   flex: 0 0 280px;
   position: sticky;
@@ -92,6 +98,23 @@ body {
   align-self: flex-start;
   max-height: calc(100vh - 120px);
   overflow-y: auto;
+}
+
+/* Ensure TOC is visible on desktop */
+@media (min-width: 993px) {
+  .article-toc {
+    display: block !important;
+    visibility: visible !important;
+  }
+  
+  .toc-toggle {
+    display: none !important;
+  }
+  
+  .toc-nav {
+    display: block !important;
+    visibility: visible !important;
+  }
 }
 
 .toc-toggle {
@@ -144,11 +167,12 @@ body {
   font-weight: 600;
 }
 
-/* Article Content */
+/* Article Content - FIXED WIDTH ISSUE */
 .article-content {
   flex: 1;
-  min-width: 0; /* Prevent flex item from overflowing */
+  min-width: 0;
   max-width: 100%;
+  width: 100%;
 }
 
 /* Social Share Buttons */
@@ -211,6 +235,7 @@ body {
 .article-body {
   font-size: 1.1rem;
   line-height: 1.7;
+  width: 100%;
 }
 
 .article-body h2 {
@@ -257,12 +282,13 @@ body {
 
 .references-list {
   list-style: none;
+  counter-reset: item;
   padding-left: 0;
 }
 
 .references-list li {
   margin-bottom: 15px;
-  padding-left: 20px;
+  padding-left: 25px;
   position: relative;
 }
 
@@ -314,7 +340,15 @@ body {
   transform: translateY(-3px);
 }
 
-
+/* Footer */
+.article-footer {
+  background: #1a202c;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 60px;
+  width: 100%;
+}
 
 /* ===================================
    RESPONSIVE STYLES
@@ -358,7 +392,7 @@ body {
 /* Mobile Devices */
 @media (max-width: 768px) {
   .article-hero {
-    padding: 100px 15px 60px;
+    padding: 100px 0 60px;
   }
   
   .hero-title {
