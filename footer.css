@@ -265,3 +265,13 @@
     font-size: 0.8rem;
   }
 }
+
+
+@media (min-width: 768px) {
+  .footer-newsletter {
+    width: 100%;
+    max-width: 1200px;  /* footer ke andar ek bada box */
+    margin: 0 auto;     /* center align */
+  }
+}
+
