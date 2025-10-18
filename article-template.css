@@ -340,15 +340,7 @@ body {
   transform: translateY(-3px);
 }
 
-/* Footer */
-.article-footer {
-  background: #1a202c;
-  color: white;
-  text-align: center;
-  padding: 30px 20px;
-  margin-top: 60px;
-  width: 100%;
-}
+
 
 /* ===================================
    RESPONSIVE STYLES
@@ -447,3 +439,74 @@ body {
     justify-content: center;
   }
 }
+
+/* ===== Firefox/Chrome layout fixes: Article layout improvements ===== */
+/* 1. Reset + normalize enhancement */
+html, body { height: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+/* 2. Forced stable box model already set; ensure images behave */
+img, picture, svg, video { display: block; max-width: 100%; height: auto; }
+
+/* 3. Prevent flex children overflow and fractional rounding issues */
+.article-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 40px;
+  position: relative;
+  width: 100%;
+  align-items: flex-start;
+  /* remove potential double-width from 100% + padding on small viewports */
+  box-sizing: border-box;
+}
+
+/* ensure flex items can shrink properly (important for Firefox) */
+.article-content { flex: 1 1 0%; min-width: 0; }
+
+/* 4. Scrollbar gutter to avoid layout shift when scrollbar appears (Chrome/Firefox support) */
+html { scrollbar-gutter: stable both-edges; }
+
+/* 5. Text wrapping + hyphenation to avoid overflow and overlaps */
+.article-body, .toc-link, .hero-title {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* 6. Make TOC sticky safer in Firefox: use top offset and will-change to avoid repaint issues */
+.article-toc {
+  flex: 0 0 280px;
+  position: sticky;
+  top: 100px;
+  align-self: flex-start;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  will-change: transform;
+}
+
+/* 7. Avoid subpixel rounding issues on layout containers */
+.row, .article-main, .toc-nav { transform: translateZ(0); }
+
+/* 8. Normalize form/control appearance differences */
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* 9. Webfont loading safety (if using webfonts) - fallback stability */
+@font-face { font-display: swap; }
+
+/* 10. Firefox-only small tweaks (apply only if specific Firefox bug persists) */
+@-moz-document url-prefix() {
+  /* fix: sometimes Firefox renders gap inside sticky elements; tighten widths */
+  .article-toc { min-width: 0; }
+  .article-main { gap: 32px; } /* slightly smaller gap for Firefox if overlap observed */
+}
+
