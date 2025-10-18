@@ -1,25 +1,56 @@
 /* ===== Research Article Styles ===== */
 
+/* ===== HERO SECTION (Article Header) ===== */
 .article-header {
+  position: relative;
+  background: linear-gradient(135deg, #6a11cb, #7f00ff);
+  color: #fff;
+  padding: 5rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 3rem 1rem;
-  border-bottom: 1px solid #ddd;
+}
+
+.article-header .hero-card {
+  background: #fff;
+  color: #333;
+  max-width: 900px;
+  width: 90%;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  border: 2px solid rgba(255,255,255,0.2);
 }
 
 .article-header h1 {
-  font-size: 2.2rem;
-  color: #222;
+  font-size: 2.8rem;
+  color: #2e2e8a;
+  margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 .article-header .subtitle {
   color: #555;
+  font-size: 1.1rem;
   font-style: italic;
-  margin: 0.5rem 0 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .article-meta {
   color: #777;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+/* Adjust layout for desktop screens */
+@media (min-width: 992px) {
+  .article-header h1 {
+    font-size: 3rem;
+  }
+  .article-header .hero-card {
+    padding: 4rem 3rem;
+  }
 }
 
 /* Progress Bar */
