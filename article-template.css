@@ -204,7 +204,7 @@ body {
 
 /*articles header*/
 
-header {
+articles header {
   background: linear-gradient(120deg, #0053a6, #0078d7);
   color: #fff;
   text-align: center;
@@ -212,12 +212,12 @@ header {
   box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
 
-header h1 {
+articles header h1 {
   font-size: 2.4em;
   margin-bottom: 10px;
 }
 
-header p {
+articles header p {
   font-size: 1.1em;
 }
 
@@ -281,75 +281,55 @@ section h2 {
   }
 }
 
-
-
-
-/* Back to Top button on left */
-.back-to-top {
-  background-color: #007be5;
-  color: white;
-  width: 45px;
-  height: 45px;
-  font-size: 24px;
-  border-radius: 50%;
-  line-height: 45px;
-  text-align: center;
+.page-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 8%;
+  background: #f8f6ff; /* Soft background to match footer */
+  border-top: 1px solid #e0dff7;
+  position: relative;
+  z-index: 10;
+  flex-wrap: wrap;
 }
 
-.back-to-top:hover {
-  background-color: #004aad;
+.page-buttons button {
+  padding: 10px 18px;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* Download button on right */
+/* Download button - Left */
 .download-btn {
-  background-color: #28a745;
-  color: white;
+  background-color: #6c63ff;
+  color: #fff;
 }
 
 .download-btn:hover {
-  background-color: #1e7e34;
+  background-color: #5b52e0;
 }
 
-
-/* Desktop & larger screens: buttons fixed on opposite sides */
-.fixed-action-buttons {
-  position: fixed;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  padding: 0 40px;
-  display: flex;
-  justify-content: space-between;
-  pointer-events: none;
-  z-index: 1000;
-  box-sizing: border-box;
+/* Back to Top button - Right */
+.backtop-btn {
+  background-color: #eee;
+  color: #333;
 }
 
-.fixed-action-buttons button {
-  pointer-events: auto;
-  padding: 12px 18px;
-  font-size: 16px;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  transition: background-color 0.3s ease;
-  min-width: 45px;
+.backtop-btn:hover {
+  background-color: #ddd;
 }
 
-/* Mobile: stack buttons horizontally centered with spacing */
+/* Responsive */
 @media (max-width: 600px) {
-  .fixed-action-buttons {
-    justify-content: center;
-    gap: 20px;
-    padding: 0 20px;
-  }
-
-  .fixed-action-buttons button {
-    flex: 1 1 auto;
-    min-width: unset;
-    max-width: 140px;
+  .page-buttons {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
   }
 }
+
 
