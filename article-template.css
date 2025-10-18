@@ -1,512 +1,81 @@
-/* ===================================
-   ARTICLE TEMPLATE CSS - FIXED LAYOUT
-   =================================== */
-
-/* Reset and Base Styles */
-* {
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background: #f4f6fb;
+  color: #222;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #fff;
-  overflow-x: hidden;
-}
-
-/* Reading Progress Bar */
-.read-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background-color: #f0f0f0;
-  z-index: 1000;
-}
-
-.progress-bar {
-  display: block;
-  height: 100%;
-  background-color: #2c5aa0;
-  width: 0%;
-  transition: width 0.3s ease;
-}
-
-/* Hero Section - FIXED FULL WIDTH */
-.article-hero {
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-  color: white;
-  padding: 120px 0 80px;
+header {
+  background: linear-gradient(120deg, #0053a6, #0078d7);
+  color: #fff;
   text-align: center;
-  margin-bottom: 40px;
-  width: 100%;
-  position: relative;
-  left: 0;
-  right: 0;
+  padding: 60px 20px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
 
-.hero-content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.hero-title {
-  font-size: 2.8rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  line-height: 1.2;
-}
-
-.hero-subtitle {
-  font-size: 1.3rem;
-  font-weight: 300;
-  margin-bottom: 25px;
-  opacity: 0.9;
-  line-height: 1.5;
-}
-
-.hero-meta {
-  font-size: 1rem;
-  opacity: 0.8;
-}
-
-.separator {
-  margin: 0 10px;
-}
-
-/* Main Article Layout - FIXED WIDTH ISSUE */
-.article-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  gap: 40px;
-  position: relative;
-  width: 100%;
-}
-
-/* Table of Contents Sidebar - FIXED FOR DESKTOP VISIBILITY */
-.article-toc {
-  flex: 0 0 280px;
-  position: sticky;
-  top: 100px;
-  align-self: flex-start;
-  max-height: calc(100vh - 120px);
-  overflow-y: auto;
-}
-
-/* Ensure TOC is visible on desktop */
-@media (min-width: 993px) {
-  .article-toc {
-    display: block !important;
-    visibility: visible !important;
-  }
-  
-  .toc-toggle {
-    display: none !important;
-  }
-  
-  .toc-nav {
-    display: block !important;
-    visibility: visible !important;
-  }
-}
-
-.toc-toggle {
-  display: none;
-  width: 100%;
-  padding: 12px 16px;
-  background: #f5f7fa;
-  border: 1px solid #e1e5eb;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
+header h1 {
+  font-size: 2.4em;
   margin-bottom: 10px;
 }
 
-.toc-nav {
-  background: #f5f7fa;
-  border-radius: 8px;
-  padding: 20px;
-  border: 1px solid #e1e5eb;
+header p {
+  font-size: 1.1em;
 }
 
-.toc-list {
-  list-style: none;
-  padding-left: 0;
+main {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
-.toc-list li {
-  margin-bottom: 10px;
-  position: relative;
-}
-
-.toc-link {
-  display: block;
-  padding: 8px 12px;
-  color: #4a5568;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-  font-size: 0.95rem;
-}
-
-.toc-link:hover {
-  background: #e2e8f0;
-  color: #2d3748;
-}
-
-.toc-link.active {
-  background: #2c5aa0;
-  color: white;
-  font-weight: 600;
-}
-
-/* Article Content - FIXED WIDTH ISSUE */
-.article-content {
-  flex: 1;
-  min-width: 0;
-  max-width: 100%;
-  width: 100%;
-}
-
-/* Social Share Buttons */
-.article-social {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 30px;
-}
-
-.social-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.2s ease;
-}
-
-.social-btn:hover {
-  transform: translateY(-2px);
-}
-
-.facebook {
-  background: #3b5998;
-}
-
-.twitter {
-  background: #1da1f2;
-}
-
-.linkedin {
-  background: #0077b5;
-}
-
-/* Featured Image */
-.article-featured-image {
+section {
   margin-bottom: 40px;
+  padding: 15px;
+  border-left: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+
+section:focus,
+section:hover {
+  border-left: 5px solid #0078d7;
+  background: #f0f7ff;
+  outline: none;
+}
+
+section h2 {
+  color: #0053a6;
+  font-size: 1.5em;
+  margin-bottom: 8px;
+}
+
+footer {
+  background: #222;
+  color: #ccc;
   text-align: center;
+  padding: 20px 10px;
+  margin-top: 40px;
+  font-size: 14px;
 }
 
-.article-featured-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.article-featured-image figcaption {
-  margin-top: 10px;
-  font-size: 0.9rem;
-  color: #666;
-  font-style: italic;
-}
-
-/* Article Body Content */
-.article-body {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  width: 100%;
-}
-
-.article-body h2 {
-  font-size: 1.8rem;
-  margin: 40px 0 20px;
-  color: #2c5aa0;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.article-body h3 {
-  font-size: 1.4rem;
-  margin: 30px 0 15px;
-  color: #4a5568;
-}
-
-.article-body p {
-  margin-bottom: 20px;
-}
-
-.article-body blockquote {
-  border-left: 4px solid #2c5aa0;
-  padding-left: 20px;
-  margin: 30px 0;
-  font-style: italic;
-  color: #4a5568;
-  background: #f8fafc;
-  padding: 20px;
-  border-radius: 0 8px 8px 0;
-}
-
-/* References Section */
-.article-references {
-  margin-top: 50px;
-  padding-top: 30px;
-  border-top: 1px solid #e2e8f0;
-}
-
-.article-references h2 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #2c5aa0;
-}
-
-.references-list {
-  list-style: none;
-  counter-reset: item;
-  padding-left: 0;
-}
-
-.references-list li {
-  margin-bottom: 15px;
-  padding-left: 25px;
-  position: relative;
-}
-
-.references-list li:before {
-  content: "[" counter(item) "]";
-  counter-increment: item;
-  position: absolute;
-  left: 0;
-  font-weight: bold;
-  color: #2c5aa0;
-}
-
-.references-list a {
-  color: #2c5aa0;
-  text-decoration: none;
-}
-
-.references-list a:hover {
-  text-decoration: underline;
-}
-
-/* Back to Top Button */
-.back-to-top {
+button#downloadBtn {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: #2c5aa0;
-  color: white;
+  background: #0078d7;
+  color: #fff;
   border: none;
-  font-size: 1.5rem;
+  padding: 12px 18px;
+  border-radius: 25px;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  z-index: 999;
+  transition: background 0.3s ease;
 }
 
-.back-to-top.show {
-  opacity: 1;
-  visibility: visible;
+button#downloadBtn:hover {
+  background: #0053a6;
 }
-
-.back-to-top:hover {
-  background: #1e3c72;
-  transform: translateY(-3px);
-}
-
-
-
-/* ===================================
-   RESPONSIVE STYLES
-   =================================== */
-
-/* Tablets and Small Desktops */
-@media (max-width: 992px) {
-  .article-main {
-    flex-direction: column;
-    gap: 30px;
-  }
-  
-  .article-toc {
-    flex: none;
-    width: 100%;
-    position: static;
-    max-height: none;
-  }
-  
-  .toc-toggle {
-    display: block;
-  }
-  
-  .toc-nav {
-    display: none;
-  }
-  
-  .toc-nav:not([hidden]) {
-    display: block;
-  }
-  
-  .hero-title {
-    font-size: 2.2rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.1rem;
-  }
-}
-
-/* Mobile Devices */
-@media (max-width: 768px) {
-  .article-hero {
-    padding: 100px 0 60px;
-  }
-  
-  .hero-title {
-    font-size: 1.8rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-  
-  .article-main {
-    padding: 0 15px;
-  }
-  
-  .article-body {
-    font-size: 1rem;
-  }
-  
-  .article-body h2 {
-    font-size: 1.5rem;
-  }
-  
-  .article-body h3 {
-    font-size: 1.2rem;
-  }
-  
-  .back-to-top {
-    bottom: 20px;
-    right: 20px;
-    width: 45px;
-    height: 45px;
-  }
-}
-
-/* Small Mobile Devices */
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 1.6rem;
-  }
-  
-  .hero-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  
-  .separator {
-    display: none;
-  }
-  
-  .article-social {
-    justify-content: center;
-  }
-}
-
-/* ===== Firefox/Chrome layout fixes: Article layout improvements ===== */
-/* 1. Reset + normalize enhancement */
-html, body { height: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-
-/* 2. Forced stable box model already set; ensure images behave */
-img, picture, svg, video { display: block; max-width: 100%; height: auto; }
-
-/* 3. Prevent flex children overflow and fractional rounding issues */
-.article-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  gap: 40px;
-  position: relative;
-  width: 100%;
-  align-items: flex-start;
-  /* remove potential double-width from 100% + padding on small viewports */
-  box-sizing: border-box;
-}
-
-/* ensure flex items can shrink properly (important for Firefox) */
-.article-content { flex: 1 1 0%; min-width: 0; }
-
-/* 4. Scrollbar gutter to avoid layout shift when scrollbar appears (Chrome/Firefox support) */
-html { scrollbar-gutter: stable both-edges; }
-
-/* 5. Text wrapping + hyphenation to avoid overflow and overlaps */
-.article-body, .toc-link, .hero-title {
-  overflow-wrap: anywhere;
-  word-break: break-word;
-  hyphens: auto;
-}
-
-/* 6. Make TOC sticky safer in Firefox: use top offset and will-change to avoid repaint issues */
-.article-toc {
-  flex: 0 0 280px;
-  position: sticky;
-  top: 100px;
-  align-self: flex-start;
-  max-height: calc(100vh - 120px);
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  will-change: transform;
-}
-
-/* 7. Avoid subpixel rounding issues on layout containers */
-.row, .article-main, .toc-nav { transform: translateZ(0); }
-
-/* 8. Normalize form/control appearance differences */
-button, input, select, textarea {
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-/* 9. Webfont loading safety (if using webfonts) - fallback stability */
-@font-face { font-display: swap; }
-
-/* 10. Firefox-only small tweaks (apply only if specific Firefox bug persists) */
-@-moz-document url-prefix() {
-  /* fix: sometimes Firefox renders gap inside sticky elements; tighten widths */
-  .article-toc { min-width: 0; }
-  .article-main { gap: 32px; } /* slightly smaller gap for Firefox if overlap observed */
-}
-
