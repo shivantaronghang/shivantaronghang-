@@ -459,6 +459,30 @@ body {
   color: #F59E0B;
 }
 
+/* Desktop screens ke liye */
+@media (min-width: 768px) {
+  .footer-newsletter form {
+    flex-direction: row;       /* input aur button ek line mein */
+    align-items: center;
+  }
+
+  .footer-newsletter input {
+    flex: 1;                   /* input jitna ho sake utna space le */
+    margin-right: 10px;        /* button se thoda gap */
+  }
+
+  .footer-newsletter button {
+    width: auto;               /* button ka width input ke equal na ho */
+    padding: 12px 20px;
+  }
+
+  .footer-newsletter {
+    max-width: 900px;          /* footer ke andar ek fixed max width */
+    margin: 0 auto;            /* center align */
+  }
+}
+
+
 /* ===== CONTACT FORM STYLES ===== */
 .contact-form {
   background: #FFFFFF;
