@@ -1,0 +1,156 @@
+/* Reset & base */
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: #fff;
+  color: #222;
+  line-height: 1.6;
+  font-size: 16px;
+  padding-bottom: 40px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  background: #121212;
+  color: #ddd;
+}
+
+/* Scroll Progress Bar */
+#scrollProgress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 0;
+  height: 4px;
+  background: #0078d7;
+  z-index: 9999;
+  transition: width 0.2s ease;
+}
+
+/* Theme Toggle */
+#themeToggle {
+  position: fixed;
+  top: 15px; right: 20px;
+  background: #0078d7;
+  border: none;
+  color: #fff;
+  border-radius: 50%;
+  width: 40px; height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+/* Hero */
+.blog-hero {
+  padding: 60px 20px 40px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+.blog-title {
+  font-size: 2.6rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+.blog-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 14px;
+}
+.blog-meta {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+/* Main Layout */
+.blog-main {
+  max-width: 680px;
+  margin: 20px auto 0;
+  padding: 0 20px;
+}
+/* Article content */
+.blog-content figure {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.blog-content img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+.blog-content figcaption {
+  font-size: 0.85rem;
+  color: #666;
+  font-style: italic;
+  margin-top: 6px;
+}
+.blog-content h2 {
+  font-size: 1.6rem;
+  color: #0078d7;
+  margin: 30px 0 12px;
+}
+.blog-content p {
+  margin-bottom: 18px;
+}
+
+/* Author info */
+.author-info {
+  margin-top: 40px;
+  padding: 20px;
+  background: #f7f7f7;
+  border-radius: 8px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  font-size: 0.95rem;
+}
+.author-photo {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Comments */
+.comments-section {
+  margin-top: 50px;
+  font-size: 1rem;
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 25px; right: 25px;
+  background: #0078d7;
+  color: #fff;
+  width: 45px; height: 45px;
+  border-radius: 50%;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 3px 9px rgba(0,0,0,0.3);
+  display: none;
+  user-select: none;
+  transition: background 0.3s ease;
+}
+.back-to-top:hover {
+  background: #005ea1;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .blog-main {
+    padding: 0 15px;
+  }
+  .author-info {
+    flex-direction: column;
+    text-align: center;
+  }
+  .author-photo {
+    margin-bottom: 10px;
+  }
+}
+
