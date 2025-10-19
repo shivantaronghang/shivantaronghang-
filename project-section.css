@@ -212,12 +212,13 @@
     overflow: hidden;
     box-shadow: var(--shadow-md);
     transition: var(--transition);
-    opacity: 0;
-    transform: translateY(30px);
+    opacity: 1;
+    transform: translateY(0);
     display: flex;
     flex-direction: column;
     height: 100%;
     border: 1px solid rgba(0, 114, 206, 0.1);
+    animation: fadeInUp 0.6s ease-out forwards;
 }
 
 .nexus-card.visible {
@@ -502,6 +503,14 @@
     }
 }
 
+/* Stagger animation for cards */
+.nexus-card:nth-child(1) { animation-delay: 0.1s; }
+.nexus-card:nth-child(2) { animation-delay: 0.2s; }
+.nexus-card:nth-child(3) { animation-delay: 0.3s; }
+.nexus-card:nth-child(4) { animation-delay: 0.4s; }
+.nexus-card:nth-child(5) { animation-delay: 0.5s; }
+.nexus-card:nth-child(6) { animation-delay: 0.6s; }
+
 @keyframes slideInLeft {
     from {
         opacity: 0;
@@ -659,4 +668,3 @@
         transition-duration: 0.01ms !important;
     }
 }
-
