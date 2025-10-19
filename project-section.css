@@ -1,0 +1,662 @@
+/* ===================================
+   Universal Nexus - Civilization 3.0
+   Advanced Professional Design
+   =================================== */
+
+:root {
+    --primary-color: #0072CE;
+    --primary-dark: #0056a3;
+    --primary-light: #e0f0ff;
+    --secondary-color: #003366;
+    --accent-color: #00A86B;
+    --text-dark: #1a1a1a;
+    --text-medium: #495057;
+    --text-light: #757575;
+    --bg-light: #f4f6f9;
+    --bg-white: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===================================
+   Section Styling
+   =================================== */
+
+.nexus-section {
+    background: linear-gradient(180deg, #ffffff 0%, #f4f6f9 50%, #e8f1f8 100%);
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.nexus-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(0, 114, 206, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 0, 102, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.nexus-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* ===================================
+   Background Orbs Animation
+   =================================== */
+
+.nexus-bg-orbs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.06;
+    animation: float 20s infinite ease-in-out;
+}
+
+.orb-1 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, #0072CE, #003366);
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.orb-2 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #00A86B, #0072CE);
+    bottom: 100px;
+    right: -50px;
+    animation-delay: 5s;
+}
+
+.orb-3 {
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(135deg, #003366, #00A86B);
+    bottom: -100px;
+    left: 50%;
+    animation-delay: 10s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    33% { transform: translate(30px, -30px); }
+    66% { transform: translate(-20px, 20px); }
+}
+
+/* ===================================
+   Header Styling
+   =================================== */
+
+.nexus-header {
+    text-align: center;
+    margin-bottom: 60px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.nexus-title {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+}
+
+.nexus-subtitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-medium);
+    margin-bottom: 20px;
+}
+
+.nexus-subtitle strong {
+    color: var(--primary-color);
+}
+
+.nexus-lead {
+    color: var(--text-medium);
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    background: linear-gradient(135deg, rgba(0, 114, 206, 0.08), rgba(0, 168, 107, 0.08));
+    padding: 20px 30px;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ===================================
+   Filter Buttons
+   =================================== */
+
+.nexus-filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.filter-btn {
+    padding: 10px 24px;
+    border: 2px solid var(--border-color);
+    border-radius: 25px;
+    background: var(--bg-white);
+    color: var(--text-medium);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.filter-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    color: var(--bg-white);
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 20px rgba(0, 114, 206, 0.25);
+}
+
+/* ===================================
+   Grid Layout
+   =================================== */
+
+.nexus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 35px;
+    margin-bottom: 60px;
+    animation: fadeIn 1s ease-out;
+}
+
+/* ===================================
+   Card Styling
+   =================================== */
+
+.nexus-card {
+    background: var(--bg-white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    opacity: 0;
+    transform: translateY(30px);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid rgba(0, 114, 206, 0.1);
+}
+
+.nexus-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nexus-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(0, 114, 206, 0.2);
+    border-color: var(--primary-color);
+}
+
+/* ===================================
+   Card Image Section
+   =================================== */
+
+.nexus-card-image {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+}
+
+.nexus-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+    filter: brightness(0.95);
+}
+
+.nexus-card:hover .nexus-card-image img {
+    transform: scale(1.08);
+    filter: brightness(1);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 114, 206, 0.8), rgba(0, 0, 102, 0.8));
+    display: flex;
+    align-items: flex-end;
+    padding: 15px;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.nexus-card:hover .image-overlay {
+    opacity: 1;
+}
+
+.category-badge {
+    background: var(--accent-color);
+    color: var(--bg-white);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ===================================
+   Card Content
+   =================================== */
+
+.nexus-card-content {
+    padding: 30px 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.nexus-icon {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    display: inline-block;
+    animation: bobbing 3s ease-in-out infinite;
+}
+
+@keyframes bobbing {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.nexus-card h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--secondary-color);
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.nexus-card p {
+    font-size: 0.95rem;
+    color: var(--text-medium);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+/* ===================================
+   Stats Section
+   =================================== */
+
+.nexus-stats {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+    padding: 15px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.stat {
+    flex: 1;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.stat strong {
+    display: block;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+}
+
+/* ===================================
+   Links
+   =================================== */
+
+.nexus-link {
+    color: var(--primary-color);
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    transition: var(--transition);
+    font-size: 0.95rem;
+}
+
+.nexus-link:hover {
+    color: var(--primary-dark);
+    gap: 12px;
+}
+
+.nexus-link .arrow {
+    display: inline-block;
+    transition: var(--transition);
+}
+
+.nexus-link:hover .arrow {
+    transform: translateX(4px);
+}
+
+/* ===================================
+   CTA Section
+   =================================== */
+
+.nexus-cta-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 20px;
+    padding: 50px 40px;
+    text-align: center;
+    color: var(--bg-white);
+    box-shadow: var(--shadow-lg);
+    animation: fadeInUp 1s ease-out;
+}
+
+.nexus-cta-content h3 {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+.nexus-cta-content p {
+    font-size: 1.1rem;
+    opacity: 0.95;
+    margin-bottom: 30px;
+}
+
+.nexus-cta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* ===================================
+   Buttons
+   =================================== */
+
+.nexus-btn {
+    padding: 14px 35px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    letter-spacing: 0.3px;
+}
+
+.nexus-btn.primary {
+    background-color: var(--bg-white);
+    color: var(--primary-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.nexus-btn.primary:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.nexus-btn.secondary {
+    background-color: transparent;
+    color: var(--bg-white);
+    border: 2px solid var(--bg-white);
+}
+
+.nexus-btn.secondary:hover {
+    background-color: var(--bg-white);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.arrow-icon {
+    display: inline-block;
+    transition: var(--transition);
+}
+
+.nexus-btn:hover .arrow-icon {
+    transform: translateX(4px);
+}
+
+/* ===================================
+   Animations
+   =================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+
+@media (max-width: 1024px) {
+    .nexus-section {
+        padding: 80px 15px;
+    }
+
+    .nexus-title {
+        font-size: 2.5rem;
+    }
+
+    .nexus-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+
+    .nexus-cta-section {
+        padding: 40px 30px;
+    }
+
+    .nexus-cta-content h3 {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nexus-section {
+        padding: 60px 12px;
+    }
+
+    .nexus-title {
+        font-size: 2rem;
+    }
+
+    .nexus-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .nexus-lead {
+        font-size: 0.95rem;
+        padding: 15px 20px;
+    }
+
+    .nexus-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .nexus-filters {
+        gap: 8px;
+    }
+
+    .filter-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+
+    .nexus-card-image {
+        height: 180px;
+    }
+
+    .nexus-card-content {
+        padding: 20px;
+    }
+
+    .nexus-icon {
+        font-size: 2.2rem;
+    }
+
+    .nexus-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .nexus-stats {
+        font-size: 0.8rem;
+    }
+
+    .nexus-cta-section {
+        padding: 30px 20px;
+    }
+
+    .nexus-cta-content h3 {
+        font-size: 1.4rem;
+    }
+
+    .nexus-cta {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nexus-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nexus-title {
+        font-size: 1.6rem;
+    }
+
+    .nexus-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .nexus-card p {
+        font-size: 0.9rem;
+    }
+
+    .nexus-link {
+        font-size: 0.85rem;
+    }
+
+    .nexus-cta-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .nexus-cta-content p {
+        font-size: 0.95rem;
+    }
+}
+
+/* ===================================
+   Accessibility & Print
+   =================================== */
+
+@media print {
+    .nexus-section {
+        background: none;
+    }
+
+    .nexus-card {
+        page-break-inside: avoid;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
