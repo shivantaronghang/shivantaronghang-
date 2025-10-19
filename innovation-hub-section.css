@@ -1,0 +1,344 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f3ff;
+    overflow-x: hidden;
+}
+
+/* Hero Section - Advanced */
+.civ3-hero-section {
+    position: relative;
+    width: 100%;
+    padding-top: 40px;
+}
+
+.civ3-hero {
+    position: relative;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f0030 0%, #1a0050 50%, #0f0030 100%);
+}
+
+/* Animated Background Elements */
+.civ3-hero::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(106, 77, 245, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    top: -100px;
+    left: -100px;
+    animation: floatSlow 8s ease-in-out infinite;
+}
+
+.civ3-hero::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(155, 110, 252, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    bottom: -150px;
+    right: -100px;
+    animation: floatSlow 10s ease-in-out infinite reverse;
+}
+
+@keyframes floatSlow {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(30px, 30px); }
+}
+
+.civ3-overlay {
+    position: relative;
+    z-index: 10;
+    background: rgba(15, 0, 48, 0.4);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.civ3-content {
+    max-width: 900px;
+    animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.civ3-content h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #f3f0ff;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #f3f0ff 0%, #d8ceff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.civ3-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #e0d4ff;
+}
+
+.civ3-content strong {
+    color: #b8a9ff;
+    font-weight: 700;
+}
+
+/* Featured 4 Topic Cards - Advanced */
+.civ3-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1300px;
+    margin: 80px auto 60px;
+    padding: 0 20px;
+}
+
+.civ3-card {
+    position: relative;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+    border: 1px solid rgba(184, 169, 255, 0.15);
+    group: card;
+}
+
+.civ3-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 50px rgba(106, 77, 245, 0.25);
+    border-color: rgba(184, 169, 255, 0.4);
+}
+
+.civ3-card-image-wrapper {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f3f0ff 0%, #ede7ff 100%);
+}
+
+.civ3-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.civ3-card:hover .civ3-card-image {
+    transform: scale(1.08);
+}
+
+.civ3-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(106, 77, 245, 0.7) 0%, rgba(155, 110, 252, 0.5) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.civ3-card:hover .civ3-card-overlay {
+    opacity: 1;
+}
+
+.civ3-card-number {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #6a4df5;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.3rem;
+    z-index: 5;
+}
+
+.civ3-card-content {
+    padding: 25px;
+}
+
+.civ3-card h3 {
+    font-size: 1.4rem;
+    color: #2b1363;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.civ3-card-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #6a4df5, #9b6efc);
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.civ3-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+
+.read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    color: #6a4df5;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.read-more-btn::after {
+    content: '→';
+    transition: transform 0.3s ease;
+}
+
+.read-more-btn:hover {
+    color: #8c63ff;
+}
+
+.read-more-btn:hover::after {
+    transform: translateX(5px);
+}
+
+/* Explore Hub Button - Advanced */
+.civ3-explore-btn-container {
+    text-align: center;
+    margin: 60px 0 100px;
+}
+
+.civ3-explore-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #6a4df5 0%, #9b6efc 100%);
+    color: #fff;
+    padding: 16px 48px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 8px 25px rgba(106, 77, 245, 0.3);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+    border: 2px solid transparent;
+    overflow: hidden;
+}
+
+.civ3-explore-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.civ3-explore-btn:hover {
+    background: linear-gradient(135deg, #8c63ff 0%, #b68bff 100%);
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 15px 40px rgba(106, 77, 245, 0.4);
+}
+
+.civ3-explore-btn:hover::before {
+    left: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .civ3-content h2 {
+        font-size: 2.8rem;
+    }
+
+    .civ3-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .civ3-hero {
+        height: 55vh;
+    }
+
+    .civ3-content h2 {
+        font-size: 2rem;
+    }
+
+    .civ3-content p {
+        font-size: 1rem;
+    }
+
+    .civ3-cards-container {
+        grid-template-columns: 1fr;
+        margin: 60px auto 40px;
+    }
+
+    .civ3-explore-btn {
+        padding: 14px 35px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .civ3-hero {
+        height: 45vh;
+    }
+
+    .civ3-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .civ3-card-content {
+        padding: 18px;
+    }
+
+    .civ3-card h3 {
+        font-size: 1.1rem;
+    }
+}
+
