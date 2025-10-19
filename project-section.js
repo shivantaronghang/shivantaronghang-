@@ -4,12 +4,21 @@
    =================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Make cards visible immediately
+    const cards = document.querySelectorAll(".nexus-card");
+    cards.forEach((card, index) => {
+        card.style.opacity = "1";
+        card.style.display = "flex";
+    });
+
     // Initialize all features
-    initIntersectionObserver();
-    initFilterButtons();
-    initLazyLoading();
-    initSmoothScroll();
-    initButtonHoverEffects();
+    setTimeout(() => {
+        initIntersectionObserver();
+        initFilterButtons();
+        initLazyLoading();
+        initSmoothScroll();
+        initButtonHoverEffects();
+    }, 100);
 });
 
 /* ===================================
@@ -18,30 +27,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function initIntersectionObserver() {
     const cards = document.querySelectorAll(".nexus-card");
-    const header = document.querySelector(".nexus-header");
-
+    
+    // Cards are already visible via CSS animation
+    // This observer is just for tracking
     const observerOptions = {
         threshold: 0.1,
         rootMargin: "0px 0px -50px 0px"
     };
 
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                // Stagger animation for cards
-                setTimeout(() => {
-                    entry.target.classList.add("visible");
-                }, index * 100);
-                
-                observer.unobserve(entry.target);
+                entry.target.style.opacity = "1";
+                entry.target.style.visibility = "visible";
             }
         });
     }, observerOptions);
 
-    // Observe all cards
-    cards.forEach(card => observer.observe(card));
+    cards.forEach(card => {
+        card.style.opacity = "1";
+        card.style.visibility = "visible";
+        observer.observe(card);
+    });
 
     // Animate header
+    const header = document.querySelector(".nexus-header");
     if (header) {
         header.style.animation = "fadeInDown 0.8s ease-out";
     }
@@ -393,4 +403,3 @@ document.addEventListener("visibilitychange", () => {
 
 console.log("%c🚀 Universal Nexus Section Loaded", "color: #0072CE; font-size: 16px; font-weight: bold;");
 console.log("%cCivilization 3.0 - Advanced Features Active", "color: #003366; font-size: 12px;");
-
