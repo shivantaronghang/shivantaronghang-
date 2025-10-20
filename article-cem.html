@@ -25,8 +25,13 @@
 
     <!-- Table of Contents Sidebar -->
     <aside class="article-toc" aria-label="Table of contents">
-      <button class="toc-toggle" aria-expanded="false" aria-controls="toc-nav">☰ On this page</button>
-      <nav id="toc-nav">
+      <div class="toc-header">
+        <button class="toc-toggle desktop-toc-toggle" aria-expanded="true" aria-controls="toc-nav">
+          <span class="toggle-icon">☰</span>
+          <span class="toggle-text">Table of Contents</span>
+        </button>
+      </div>
+      <nav id="toc-nav" class="toc-nav-expanded">
         <ol class="toc-list">
           <li><a href="#keywords" class="toc-link">Keywords</a></li>
           <li><a href="#abstract" class="toc-link">Abstract</a></li>
