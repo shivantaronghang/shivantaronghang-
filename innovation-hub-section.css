@@ -125,7 +125,9 @@ body {
     gap: 30px;
     max-width: 1300px;
     margin: 80px auto 60px;
-    padding: 0 20px;
+    padding: 60px 20px;
+    background: #f3f4f6;
+    border-radius: 0;
 }
 
 /* ===== CARD STYLING ===== */
@@ -336,6 +338,7 @@ body {
     .civ3-cards-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
+        padding: 50px 20px;
     }
 }
 
@@ -360,6 +363,7 @@ body {
         grid-template-columns: 1fr;
         margin: 60px auto 40px;
         gap: 25px;
+        padding: 40px 20px;
     }
 
     .civ3-explore-btn {
@@ -398,6 +402,10 @@ body {
         font-size: 0.95rem;
     }
 
+    .civ3-cards-container {
+        padding: 30px 15px;
+    }
+
     .civ3-card-content {
         padding: 18px;
     }
@@ -419,7 +427,6 @@ body {
 
     .civ3-cards-container {
         gap: 15px;
-        padding: 0 15px;
     }
 
     .civ3-explore-btn {
