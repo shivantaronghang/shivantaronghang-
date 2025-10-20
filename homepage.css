@@ -370,6 +370,17 @@
   background: #FFFFFF;
 }
 
+/ Blog Header /
+.blog-section h2,
+.blog-section h3,
+.blog-section .blog-header {
+  background: purple;   / Purple background /
+  color: #FFFFFF;       / White text /
+  padding: 15px 25px;   / Optional spacing /
+  border-radius: 8px;   / Optional rounded corners /
+}
+
+
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
