@@ -19,42 +19,45 @@ body {
 .civ3-hero-section {
     position: relative;
     width: 100%;
-    padding-top: 40px;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
 }
 
 .civ3-hero {
     position: relative;
-    height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1e3a8a 100%);
+    background: transparent;
+    padding: 60px 0;
 }
 
 /* Animated Background Elements */
 .civ3-hero::before {
     content: '';
     position: absolute;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 70%);
     border-radius: 50%;
-    top: -100px;
+    top: -150px;
     left: -100px;
     animation: floatSlow 8s ease-in-out infinite;
+    z-index: 1;
 }
 
 .civ3-hero::after {
     content: '';
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
     border-radius: 50%;
-    bottom: -150px;
-    right: -100px;
+    bottom: -200px;
+    right: -150px;
     animation: floatSlow 10s ease-in-out infinite reverse;
+    z-index: 1;
 }
 
 @keyframes floatSlow {
@@ -69,19 +72,15 @@ body {
 .civ3-overlay {
     position: relative;
     z-index: 10;
-    background: rgba(30, 58, 138, 0.3);
-    backdrop-filter: blur(10px);
     width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    max-width: 1100px;
+    margin: 0 auto;
     text-align: center;
-    padding: 40px 20px;
 }
 
 .civ3-content {
-    max-width: 900px;
+    max-width: 1000px;
+    margin: 0 auto;
     animation: slideUp 0.8s ease-out;
 }
 
@@ -97,23 +96,26 @@ body {
 }
 
 .civ3-content h2 {
-    font-size: 3.5rem;
-    font-weight: 800;
+    font-size: 3.8rem;
+    font-weight: 900;
     color: #ffffff;
-    margin-bottom: 20px;
-    letter-spacing: -0.5px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 25px;
+    letter-spacing: -0.8px;
+    line-height: 1.2;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .civ3-content p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #e0f2fe;
+    font-size: 1.25rem;
+    line-height: 1.9;
+    color: #dbeafe;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .civ3-content strong {
     color: #ffffff;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 /* ===== CARDS CONTAINER ===== */
@@ -327,6 +329,10 @@ body {
         font-size: 2.8rem;
     }
 
+    .civ3-content p {
+        font-size: 1.1rem;
+    }
+
     .civ3-cards-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
@@ -334,12 +340,16 @@ body {
 }
 
 @media (max-width: 768px) {
+    .civ3-hero-section {
+        padding: 60px 20px;
+    }
+
     .civ3-hero {
-        height: 45vh;
+        padding: 40px 0;
     }
 
     .civ3-content h2 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     .civ3-content p {
@@ -371,13 +381,17 @@ body {
 }
 
 @media (max-width: 480px) {
+    .civ3-hero-section {
+        padding: 50px 15px;
+    }
+
     .civ3-hero {
-        height: 40vh;
-        padding-top: 0;
+        padding: 30px 0;
     }
 
     .civ3-content h2 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
+        margin-bottom: 15px;
     }
 
     .civ3-content p {
