@@ -51,21 +51,61 @@ body {
   align-self: flex-start;
   background: #f8f9fa;
   border-radius: 8px;
-  padding: 1.5rem;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
 }
 
-.toc-toggle {
-  display: none;
+.article-toc.collapsed {
+  flex: 0 0 60px;
+}
+
+.toc-header {
+  padding: 1.5rem 1.5rem 0;
+}
+
+.desktop-toc-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   width: 100%;
   background: #2a5298;
   color: white;
   border: none;
-  padding: 0.8rem;
-  border-radius: 4px;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
-  margin-bottom: 1rem;
+  transition: all 0.2s ease;
+}
+
+.desktop-toc-toggle:hover {
+  background: #1e3c72;
+  transform: translateY(-1px);
+}
+
+.toggle-icon {
+  font-size: 1.2rem;
+}
+
+.toggle-text {
+  font-size: 0.95rem;
+}
+
+.article-toc.collapsed .toggle-text {
+  display: none;
+}
+
+.article-toc.collapsed .toggle-icon {
+  transform: rotate(90deg);
+}
+
+#toc-nav {
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.article-toc.collapsed #toc-nav {
+  display: none;
 }
 
 .toc-list {
@@ -87,7 +127,8 @@ body {
   padding-left: 0.8rem;
 }
 
-.toc-link:hover {
+.toc-link:hover,
+.toc-link.active {
   color: #1e3c72;
   border-left-color: #2a5298;
 }
@@ -99,6 +140,11 @@ body {
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.article-toc.collapsed ~ .article-content {
+  margin-left: -220px;
 }
 
 /* Social Share Buttons */
@@ -313,6 +359,20 @@ body {
   transform: translateY(-3px);
 }
 
+/* Mobile Toggle Button (for smaller screens) */
+.mobile-toc-toggle {
+  display: none;
+  width: 100%;
+  background: #2a5298;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
 /* Responsive Design */
 @media (max-width: 992px) {
   .article-main {
@@ -323,6 +383,30 @@ body {
     position: static;
     flex: 1;
     margin-bottom: 2rem;
+  }
+  
+  .article-toc.collapsed {
+    flex: 0 0 auto;
+  }
+  
+  .article-toc.collapsed ~ .article-content {
+    margin-left: 0;
+  }
+  
+  .desktop-toc-toggle {
+    display: none;
+  }
+  
+  .mobile-toc-toggle {
+    display: block;
+  }
+  
+  #toc-nav {
+    display: none;
+  }
+  
+  #toc-nav.expanded {
+    display: block;
   }
   
   .article-content {
@@ -345,18 +429,6 @@ body {
   
   .article-toc {
     padding: 1rem;
-  }
-  
-  .toc-toggle {
-    display: block;
-  }
-  
-  #toc-nav {
-    display: none;
-  }
-  
-  #toc-nav.expanded {
-    display: block;
   }
   
   .article-section h2 {
