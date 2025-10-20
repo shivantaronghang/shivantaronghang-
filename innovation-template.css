@@ -63,6 +63,7 @@ body {
   padding: 1.5rem 1.5rem 0;
 }
 
+/* Desktop Toggle Button - Visible by default on desktop */
 .desktop-toc-toggle {
   display: flex;
   align-items: center;
@@ -81,6 +82,26 @@ body {
 .desktop-toc-toggle:hover {
   background: #1e3c72;
   transform: translateY(-1px);
+}
+
+/* Mobile Toggle Button - Hidden by default */
+.mobile-toc-toggle {
+  display: none;
+  width: 100%;
+  background: #2a5298;
+  color: white;
+  border: none;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mobile-toc-toggle:hover {
+  background: #1e3c72;
 }
 
 .toggle-icon {
@@ -359,20 +380,6 @@ body {
   transform: translateY(-3px);
 }
 
-/* Mobile Toggle Button (for smaller screens) */
-.mobile-toc-toggle {
-  display: none;
-  width: 100%;
-  background: #2a5298;
-  color: white;
-  border: none;
-  padding: 0.8rem;
-  border-radius: 4px;
-  font-weight: 600;
-  cursor: pointer;
-  margin-bottom: 1rem;
-}
-
 /* Responsive Design */
 @media (max-width: 992px) {
   .article-main {
@@ -393,18 +400,22 @@ body {
     margin-left: 0;
   }
   
+  /* Hide desktop toggle on mobile */
   .desktop-toc-toggle {
     display: none;
   }
   
+  /* Show mobile toggle on mobile */
   .mobile-toc-toggle {
-    display: block;
+    display: flex;
   }
   
+  /* Hide TOC nav by default on mobile */
   #toc-nav {
     display: none;
   }
   
+  /* Show TOC nav when expanded on mobile */
   #toc-nav.expanded {
     display: block;
   }
