@@ -180,6 +180,14 @@ body.dark {
   flex: 1;
   column-count: 2;
   column-gap: 30px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .article-content {
+    column-count: 1 !important;
+    column-gap: 0;
+  }
 }
 
 .article-section {
@@ -208,7 +216,11 @@ body.dark {
   margin-bottom: 16px;
   text-align: justify;
   line-height: 1.7;
-  color: var(--text-color);
+  color: #333;
+}
+
+body.dark .article-section p {
+  color: #e5e5e5;
 }
 
 .article-section ul {
@@ -220,6 +232,11 @@ body.dark {
 .article-section li {
   margin-bottom: 8px;
   line-height: 1.6;
+  color: #333;
+}
+
+body.dark .article-section li {
+  color: #e5e5e5;
 }
 
 /* ===================================
@@ -245,9 +262,13 @@ body.dark {
 
 .article-featured-image figcaption {
   font-size: 0.9rem;
-  color: var(--citation-color);
+  color: #666;
   font-style: italic;
   margin-top: 8px;
+}
+
+body.dark .article-featured-image figcaption {
+  color: #aaa;
 }
 
 /* ===================================
@@ -495,6 +516,11 @@ body.dark {
 }
 
 @media (max-width: 768px) {
+  .article-content {
+    column-count: 1 !important;
+    column-gap: 0;
+  }
+
   .article-hero-content h1 {
     font-size: 2rem;
   }
@@ -505,6 +531,7 @@ body.dark {
 
   .article-main {
     margin: 40px auto;
+    padding: 0 15px;
   }
 
   .article-footer-social {
@@ -522,6 +549,15 @@ body.dark {
     width: 36px;
     height: 36px;
     font-size: 14px;
+  }
+
+  .article-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .article-section p {
+    text-align: left;
+    font-size: 1rem;
   }
 }
 
@@ -547,6 +583,12 @@ body.dark {
     font-size: 1.4rem;
   }
 
+  .article-section p {
+    font-size: 0.95rem;
+    text-align: left;
+    margin-bottom: 12px;
+  }
+
   .footer-social-buttons {
     gap: 8px;
   }
@@ -555,5 +597,25 @@ body.dark {
     width: 42px;
     height: 42px;
     font-size: 14px;
+  }
+
+  .article-main {
+    margin: 30px auto;
+    padding: 0 12px;
+    gap: 15px;
+  }
+
+  .article-toc {
+    padding: 1rem 0.75rem;
+  }
+
+  .toc-list {
+    margin-left: 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .toc-link {
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
   }
 }
