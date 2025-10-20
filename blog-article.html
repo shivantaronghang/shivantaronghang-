@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Civilization 3.0 Blog Article</title>
+  <link rel="stylesheet" href="blog-article.css">
+</head>
+<body>
+  <header>
+    <h1>Civilization 3.0 Blog</h1>
+    <button id="dark-mode-toggle">🌙</button>
+  </header>
+
+  <main>
+    <!-- Article Content -->
+    <article id="blog-content" data-article-id="article1">
+      <h2 id="article-title">Civilization 3.0 Vision</h2>
+      <div id="article-body">
+        <p>Your full article content goes here...</p>
+      </div>
+    </article>
+
+    <!-- AI Summary Box -->
+    <section id="ai-summary-section">
+      <h3>AI Summary</h3>
+      <div id="ai-summary-cards"></div>
+      <button id="regenerate-summary">Regenerate Summary 🔄</button>
+    </section>
+
+    <!-- AI Knowledge Map -->
+    <section id="ai-knowledge-section">
+      <h3>AI Knowledge Map</h3>
+      <canvas id="ai-knowledge-map"></canvas>
+      <div id="timeline-controls">
+        <label for="timeline-slider">Timeline:</label>
+        <input type="range" id="timeline-slider" min="0" value="0">
+      </div>
+    </section>
+
+    <!-- AI Reasoning Panel -->
+    <section id="ai-reasoning-section">
+      <h3>AI Reasoning Panel</h3>
+      <div id="ai-reasoning-panel">Hover on cards or nodes to see AI reasoning...</div>
+    </section>
+
+    <!-- Suggested Reading -->
+    <section id="suggested-reading-section">
+      <h3>Suggested Reading</h3>
+      <div id="suggested-reading"></div>
+    </section>
+  </main>
+
+  <!-- Back to Top -->
+  <button id="back-to-top">⬆ Back to Top</button>
+
+  <!-- Social Sharing -->
+  <section id="social-share">
+    <button id="copy-link">Copy Link 🔗</button>
+    <a href="#" class="share-btn" data-platform="twitter">Twitter</a>
+    <a href="#" class="share-btn" data-platform="facebook">Facebook</a>
+  </section>
+
+  <div id="ai-tooltip"></div>
+
+  <script src="blog-article.js"></script>
+</body>
+</html>

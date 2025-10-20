@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Civilization 3.0 Research Hub</title>
+
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="blog-home.css">
+  <script src="blog-home.js" defer></script>
+</head>
+
+<body>
+  <!-- Global Header -->
+  <header id="global-header"></header>
+
+  <!-- Dark Mode Toggle -->
+  <button id="theme-toggle" title="Toggle Dark Mode">🌓</button>
+
+  <!-- Hero Section -->
+  <section class="blog-hero">
+    <div class="hero-content">
+      <h1>📰 Knowledge Hub: Awareness & Transformation</h1>
+      <p>Explore visionary articles on Civilization 3.0, philosophy, innovation, ethics, social reform, and sustainable future systems.</p>
+    </div>
+  </section>
+
+  <!-- Filter and Search Controls -->
+  <section class="filter-search-section">
+    <div class="filters">
+      <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="civilization">Civilization 3.0</button>
+      <button class="filter-btn" data-category="innovation">Innovation</button>
+      <button class="filter-btn" data-category="philosophy">Philosophy</button>
+      <button class="filter-btn" data-category="ai">AI & Tech</button>
+      <button class="filter-btn" data-category="society">Society</button>
+      <button class="filter-btn" data-category="environment">Environment</button>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search articles... 🔍">
+    </div>
+  </section>
+
+  <!-- Blog Grid -->
+  <main class="blog-grid">
+    <article class="blog-card" data-category="civilization">
+      <img src="images/civilization3.jpg" alt="Civilization 3.0">
+      <div class="blog-content">
+        <h2>Civilization 3.0: A New Vision for Humanity</h2>
+        <p>Discover how logic, science, and equality can redefine the next stage of human evolution.</p>
+        <div class="share-icons">
+          <button class="copy-link" data-link="civilization-blog.html">📋 Copy Link</button>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=civilization-blog.html" target="_blank">🌐 FB</a>
+          <a href="https://twitter.com/share?url=civilization-blog.html" target="_blank">🐦 X</a>
+        </div>
+        <a href="civilization-blog.html" class="read-more">Read More →</a>
+      </div>
+    </article>
+
+    <article class="blog-card" data-category="innovation">
+      <img src="images/innovation-hub.jpg" alt="Innovation Hub">
+      <div class="blog-content">
+        <h2>Innovation & Human Progress</h2>
+        <p>How innovation and technology can empower every community through sustainable development.</p>
+        <div class="share-icons">
+          <button class="copy-link" data-link="innovation-hub-section.html">📋 Copy Link</button>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=innovation-hub-section.html" target="_blank">🌐 FB</a>
+          <a href="https://twitter.com/share?url=innovation-hub-section.html" target="_blank">🐦 X</a>
+        </div>
+        <a href="innovation-hub-section.html" class="read-more">Read More →</a>
+      </div>
+    </article>
+    <!-- Add more cards as needed -->
+    
+    <!-- Existing static cards yahan rahenge -->
+
+<!-- ===== Dynamic Blog Section (JSON Based) ===== -->
+<section id="dynamic-articles">
+  <h2>🧠 Civilization 3.0 Research & Awareness</h2>
+  <div id="blog-container" class="blog-container">
+    <p class="loading">Loading blog articles...</p>
+  </div>
+</section>
+
+  </main>
+
+  <!-- Global Share Section -->
+  <section class="share-global">
+    <h2>Share the Vision 🌍</h2>
+    <p>Spread awareness of Civilization 3.0 with your friends and networks.</p>
+    <div class="share-buttons">
+      <button id="copy-site-link">📋 Copy Website Link</button>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://shivantaronghang.github.io/shivantaronghang-/" target="_blank">🌐 Share on Facebook</a>
+      <a href="https://twitter.com/share?url=https://shivantaronghang.github.io/shivantaronghang-/" target="_blank">🐦 Share on X</a>
+    </div>
+  </section>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" title="Back to Top">⬆️</button>
+
+  <!-- Footer -->
+  <footer id="global-footer"></footer>
+</body>
+</html>

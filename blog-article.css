@@ -1,0 +1,180 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9fb;
+  color: #222;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+  background-color: #1f1f2e;
+  color: #e0e0e0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: #6c63ff;
+  color: white;
+}
+
+#dark-mode-toggle {
+  cursor: pointer;
+}
+
+/* Article Section */
+article {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+#ai-summary-section, #ai-knowledge-section, #ai-reasoning-section, #suggested-reading-section {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 16px;
+  border-radius: 12px;
+  background-color: #fff;
+  transition: background-color 0.3s;
+}
+
+body.dark #ai-summary-section,
+body.dark #ai-knowledge-section,
+body.dark #ai-reasoning-section,
+body.dark #suggested-reading-section {
+  background-color: #2a2a3f;
+}
+
+#ai-summary-cards, #suggested-reading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.summary-card, .suggested-card {
+  flex: 1 1 200px;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: #6c63ff;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.summary-card:hover, .suggested-card:hover {
+  transform: translateY(-4px);
+}
+
+.summary-card .progress-bar {
+  height: 6px;
+  border-radius: 3px;
+  background-color: #fff;
+  margin-top: 8px;
+}
+
+/* Knowledge Map */
+#ai-knowledge-map {
+  width: 100%;
+  height: 400px;
+  border-radius: 12px;
+  background-color: #f9f9fb;
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark #ai-knowledge-map {
+  background-color: #1f1f2e;
+}
+
+/* Timeline Controls */
+#timeline-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+#timeline-slider {
+  flex: 1;
+}
+
+/* Reasoning Panel */
+#ai-reasoning-panel {
+  background-color: #f0f0fc;
+  border-left: 4px solid #6c63ff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+#ai-reasoning-panel.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.dark #ai-reasoning-panel {
+  background-color: #1f1f2e;
+  border-left-color: #9a7dff;
+  color: #e0e0e0;
+}
+
+/* Tooltip */
+#ai-tooltip {
+  position: absolute;
+  background-color: #6c63ff;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  max-width: 250px;
+  z-index: 1000;
+}
+
+body.dark #ai-tooltip {
+  background-color: #9a7dff;
+  color: #1f1f2e;
+}
+
+/* Back to Top */
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  border: none;
+  background-color: #6c63ff;
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Predicted Nodes/Cards */
+.predicted-node {
+  stroke: #ffba3d;
+  stroke-width: 3;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+.predicted-card {
+  opacity: 0.6;
+  border: 2px dashed #ffba3d;
+}
