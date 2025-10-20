@@ -26,9 +26,16 @@
     <!-- Table of Contents Sidebar -->
     <aside class="article-toc" aria-label="Table of contents">
       <div class="toc-header">
-        <button class="toc-toggle desktop-toc-toggle" aria-expanded="true" aria-controls="toc-nav">
+        <!-- Desktop Toggle Button -->
+        <button class="desktop-toc-toggle" aria-expanded="true" aria-controls="toc-nav">
           <span class="toggle-icon">☰</span>
           <span class="toggle-text">Table of Contents</span>
+        </button>
+        
+        <!-- Mobile Toggle Button -->
+        <button class="mobile-toc-toggle" aria-expanded="false" aria-controls="toc-nav">
+          <span class="toggle-icon">☰</span>
+          <span class="toggle-text">On this page</span>
         </button>
       </div>
       <nav id="toc-nav" class="toc-nav-expanded">
