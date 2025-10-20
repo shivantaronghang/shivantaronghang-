@@ -1,224 +1,213 @@
-// ===============================
+// ===================================
+// Article Page - JavaScript
+// ===================================
+
+// ===================================
 // Scroll Progress Bar
-// ===============================
+// ===================================
 window.addEventListener('scroll', () => {
   const scrollTop = window.scrollY;
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
   const scrolled = (scrollTop / docHeight) * 100;
-  document.getElementById('scrollProgress').style.width = scrolled + '%';
-
-  // Back to top button visibility
-  const backToTop = document.getElementById('backToTop');
-  backToTop.classList.toggle('show', scrollTop > 300);
-
-  // Active TOC link highlighting
-  updateActiveTOCLink();
+  document.getElementById('progressBar').style.width = scrolled + '%';
 });
 
-// ===============================
-// Back to Top Button
-// ===============================
-document.getElementById('backToTop').addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+// ===================================
+// Reveal Animation on Scroll
+// ===================================
+const sections = document.querySelectorAll('.article-section');
 
-// ===============================
-// TOC Toggle Functionality
-// ===============================
-const tocToggle = document.getElementById('tocToggle');
-const tocList = document.getElementById('tocList');
-
-tocToggle.addEventListener('click', () => {
-  const isExpanded = tocToggle.getAttribute('aria-expanded') === 'true';
-  tocToggle.setAttribute('aria-expanded', !isExpanded);
-  tocList.toggleAttribute('hidden');
-});
-
-// Close TOC on mobile when link clicked
-document.querySelectorAll('.toc-link').forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    const targetId = link.getAttribute('href').slice(1);
-    const target = document.getElementById(targetId);
-    
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-    
-    // Auto-close TOC on small screens
-    if (window.innerWidth <= 900) {
-      tocToggle.setAttribute('aria-expanded', 'false');
-      tocList.setAttribute('hidden', '');
-    }
-  });
-});
-
-// Ensure TOC is visible on resize if screen is large
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 900) {
-    tocToggle.setAttribute('aria-expanded', 'true');
-    tocList.removeAttribute('hidden');
-  }
-});
-
-// ===============================
-// Active TOC Link Highlighting
-// ===============================
-function updateActiveTOCLink() {
-  const sections = document.querySelectorAll('.article-section');
-  const tocLinks = document.querySelectorAll('.toc-link');
-  
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    if (window.scrollY >= sectionTop - 100) {
-      current = section.getAttribute('id');
-    }
-  });
-
-  tocLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href').slice(1) === current) {
-      link.classList.add('active');
+function revealOnScroll() {
+  sections.forEach((sec) => {
+    const rect = sec.getBoundingClientRect().top;
+    if (rect < window.innerHeight - 100) {
+      sec.classList.add('visible');
     }
   });
 }
 
-// ===============================
-// Theme Toggle
-// ===============================
-const themeToggle = document.getElementById('themeToggle');
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll(); // Run on page load
 
-// Check if user has saved theme preference or use system preference
-if (typeof localStorage !== 'undefined') {
-  if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark)) {
+// ===================================
+// Back to Top Button Logic
+// ===================================
+const backToTopBtn = document.getElementById('backToTopBtn');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) {
+    backToTopBtn.style.display = 'flex';
+  } else {
+    backToTopBtn.style.display = 'none';
+  }
+});
+
+backToTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+// ===================================
+// Table of Contents Toggle (Mobile)
+// ===================================
+const tocToggle = document.querySelector('.toc-toggle');
+const tocNav = document.querySelector('#toc-nav');
+
+if (tocToggle) {
+  // Toggle TOC visibility
+  tocToggle.addEventListener('click', () => {
+    const expanded = tocToggle.getAttribute('aria-expanded') === 'true';
+    tocToggle.setAttribute('aria-expanded', !expanded);
+    tocNav.classList.toggle('visible');
+  });
+
+  // Close TOC when a link is clicked
+  const tocLinks = document.querySelectorAll('.toc-link');
+  tocLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      tocToggle.setAttribute('aria-expanded', 'false');
+      tocNav.classList.remove('visible');
+    });
+  });
+}
+
+// ===================================
+// Theme Toggle (Dark Mode)
+// ===================================
+const themeToggle = document.getElementById('themeToggle');
+
+if (themeToggle) {
+  // Toggle theme on button click
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    
+    // Update button icon
+    themeToggle.textContent = isDark ? '☀️' : '🌙';
+    
+    // Save preference to localStorage
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+
+  // Load saved theme on page load
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
     document.body.classList.add('dark');
     themeToggle.textContent = '☀️';
+  } else {
+    themeToggle.textContent = '🌙';
   }
-} else if (prefersDark) {
-  document.body.classList.add('dark');
-  themeToggle.textContent = '☀️';
 }
 
-themeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-  const isDark = document.body.classList.contains('dark');
-  themeToggle.textContent = isDark ? '☀️' : '🌙';
-  
-  // Save theme preference if localStorage is available
-  if (typeof localStorage !== 'undefined') {
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  }
-});
+// ===================================
+// Social Share Buttons Functionality
+// ===================================
+document.addEventListener('DOMContentLoaded', () => {
+  const pageTitle = document.querySelector('.article-hero-content h1').textContent;
+  const pageUrl = window.location.href;
 
-// ===============================
-// Copy Section Link on Click
-// ===============================
-document.querySelectorAll('.section-title').forEach(title => {
-  title.addEventListener('click', () => {
-    const section = title.closest('.article-section');
-    const id = section.getAttribute('id');
-    const url = window.location.origin + window.location.pathname + '#' + id;
-    
-    // Use modern Clipboard API if available, fallback to older method
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(url).then(() => {
-        showCopyFeedback(title);
-      }).catch(() => {
-        fallbackCopy(url, title);
-      });
-    } else {
-      fallbackCopy(url, title);
-    }
+  // Top Share Buttons
+  const topShareBtns = document.querySelectorAll('.article-social .social-btn');
+  
+  topShareBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      shareArticle(btn.classList.contains('facebook') ? 'facebook' : 
+                  btn.classList.contains('twitter') ? 'twitter' : 'linkedin',
+                  pageTitle, pageUrl);
+    });
+  });
+
+  // Footer Share Buttons
+  const footerShareBtns = document.querySelectorAll('.footer-social-buttons .footer-social-btn');
+  
+  footerShareBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const platform = btn.classList.contains('facebook') ? 'facebook' : 
+                      btn.classList.contains('twitter') ? 'twitter' : 
+                      btn.classList.contains('linkedin') ? 'linkedin' : 'email';
+      shareArticle(platform, pageTitle, pageUrl);
+    });
   });
 });
 
-function showCopyFeedback(element) {
-  const original = element.textContent;
-  element.textContent = '✓ Link copied!';
-  setTimeout(() => {
-    element.textContent = original;
-  }, 2000);
-}
+/**
+ * Share article on social media or email
+ * @param {string} platform - Platform name (facebook, twitter, linkedin, email)
+ * @param {string} title - Article title
+ * @param {string} url - Page URL
+ */
+function shareArticle(platform, title, url) {
+  let shareUrl = '';
 
-function fallbackCopy(text, element) {
-  const textarea = document.createElement('textarea');
-  textarea.value = text;
-  document.body.appendChild(textarea);
-  textarea.select();
-  
-  try {
-    document.execCommand('copy');
-    showCopyFeedback(element);
-  } catch (err) {
-    console.error('Failed to copy:', err);
+  switch(platform) {
+    case 'facebook':
+      shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+      break;
+    
+    case 'twitter':
+      shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
+      break;
+    
+    case 'linkedin':
+      shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+      break;
+    
+    case 'email':
+      shareUrl = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}`;
+      break;
   }
-  
-  document.body.removeChild(textarea);
+
+  if (shareUrl) {
+    if (platform === 'email') {
+      window.location.href = shareUrl;
+    } else {
+      window.open(shareUrl, '_blank', 'width=600,height=400');
+    }
+  }
 }
 
-// ===============================
-// Smooth Scroll for Internal Links
-// ===============================
+// ===================================
+// Smooth Scroll for TOC Links
+// ===================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     const href = this.getAttribute('href');
-    if (href !== '#') {
+    
+    // Only smooth scroll if target exists
+    if (href !== '#' && document.querySelector(href)) {
+      e.preventDefault();
+      
       const target = document.querySelector(href);
-      if (target && !this.classList.contains('toc-link')) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
   });
 });
 
-// ===============================
-// Initialize on Page Load
-// ===============================
-document.addEventListener('DOMContentLoaded', () => {
-  // Set initial active TOC link
-  updateActiveTOCLink();
-  
-  // Set initial back-to-top visibility
-  const backToTop = document.getElementById('backToTop');
-  backToTop.classList.toggle('show', window.scrollY > 300);
-});
+// ===================================
+// Intersection Observer for Analytics
+// ===================================
+const observerOptions = {
+  threshold: 0.3
+};
 
-// ===============================
-// Keyboard Navigation
-// ===============================
-document.addEventListener('keydown', (e) => {
-  // Close TOC with Escape key on mobile
-  if (e.key === 'Escape' && window.innerWidth <= 900) {
-    if (tocToggle.getAttribute('aria-expanded') === 'true') {
-      tocToggle.setAttribute('aria-expanded', 'false');
-      tocList.setAttribute('hidden', '');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // You can add analytics tracking here
+      // Example: trackPageView(entry.target.id)
+      console.log('Viewed section:', entry.target.id);
     }
-  }
-  
-  // Jump to top with Ctrl+Home or Cmd+Home
-  if ((e.ctrlKey || e.metaKey) && e.code === 'Home') {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-});
+  });
+}, observerOptions);
 
-// ===============================
-// Mobile Menu Accessibility
-// ===============================
-document.addEventListener('click', (e) => {
-  // Close TOC if clicking outside on mobile
-  if (window.innerWidth <= 900) {
-    const tocBox = document.querySelector('.toc-box');
-    const isClickInsideTOC = tocBox && tocBox.contains(e.target);
-    const isToggleButton = e.target === tocToggle || tocToggle.contains(e.target);
-    
-    if (!isClickInsideTOC && !isToggleButton && tocToggle.getAttribute('aria-expanded') === 'true') {
-      tocToggle.setAttribute('aria-expanded', 'false');
-      tocList.setAttribute('hidden', '');
-    }
-  }
+// Observe all article sections
+document.querySelectorAll('.article-section').forEach(section => {
+  observer.observe(section);
 });
-
