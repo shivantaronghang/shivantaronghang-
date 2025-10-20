@@ -1,0 +1,642 @@
+/* ========================================
+   Civilization 3.0 - Innovation Subpage CSS
+   ======================================== */
+
+/* Main Container */
+.innovation-theories-main {
+    background: #ffffff;
+    min-height: calc(100vh - 200px);
+}
+
+/* ===== PAGE INTRO SECTION ===== */
+.civ3-page-intro {
+    background: linear-gradient(135deg, #f5f3ff 0%, #faf8ff 100%);
+    padding: 80px 20px 60px;
+    border-bottom: 2px solid rgba(106, 77, 245, 0.1);
+}
+
+.intro-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.intro-content {
+    text-align: center;
+}
+
+.intro-content h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1a0050;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.intro-content p {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 900px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+}
+
+.intro-content strong {
+    color: #6a4df5;
+    font-weight: 700;
+}
+
+/* Stats Display */
+.intro-stats {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #6a4df5;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    color: #888;
+    margin-top: 8px;
+    font-weight: 600;
+}
+
+/* ===== SEARCH & FILTER SECTION ===== */
+.civ3-search-filter {
+    padding: 50px 20px;
+    background: #fafafa;
+    border-bottom: 1px solid #eee;
+}
+
+.search-filter-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Search Box */
+.search-box {
+    margin-bottom: 30px;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 14px 24px;
+    border: 2px solid #eee;
+    border-radius: 30px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #fff;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #6a4df5;
+    box-shadow: 0 4px 15px rgba(106, 77, 245, 0.15);
+}
+
+.search-input::placeholder {
+    color: #bbb;
+}
+
+/* Category Tabs */
+.filter-controls {
+    margin-top: 30px;
+}
+
+.category-tabs {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    background: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    color: #555;
+}
+
+.tab-btn:hover {
+    border-color: #6a4df5;
+    color: #6a4df5;
+    background: rgba(106, 77, 245, 0.05);
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #6a4df5 0%, #9b6efc 100%);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 6px 20px rgba(106, 77, 245, 0.3);
+}
+
+.tab-icon {
+    font-size: 1.2rem;
+}
+
+/* ===== TOPICS SECTION ===== */
+.civ3-topics-section {
+    padding: 80px 20px;
+    background: #ffffff;
+}
+
+.topics-container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.results-info {
+    margin-bottom: 40px;
+    font-size: 1rem;
+    color: #666;
+}
+
+.results-info strong {
+    color: #6a4df5;
+    font-weight: 700;
+}
+
+/* Topics Grid */
+.civ3-topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 35px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Topic Card */
+.topic-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+    border: 1px solid rgba(106, 77, 245, 0.08);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.topic-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 50px rgba(106, 77, 245, 0.2);
+    border-color: rgba(106, 77, 245, 0.2);
+}
+
+/* Card Image Wrapper */
+.card-image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 66.667%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f3f0ff 0%, #ede7ff 100%);
+}
+
+.card-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.topic-card:hover .card-svg {
+    transform: scale(1.08);
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(106, 77, 245, 0.7) 0%, rgba(155, 110, 252, 0.5) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.topic-card:hover .card-overlay {
+    opacity: 0;
+}
+
+.card-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: linear-gradient(135deg, #6a4df5, #9b6efc);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    z-index: 3;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-number {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #6a4df5;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    z-index: 3;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Content */
+.card-content {
+    padding: 28px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-meta {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.card-category-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(106, 77, 245, 0.15), rgba(155, 110, 252, 0.1));
+    color: #6a4df5;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.card-date {
+    display: inline-block;
+    background: rgba(100, 100, 100, 0.1);
+    color: #666;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.card-content h3 {
+    font-size: 1.3rem;
+    color: #1a0050;
+    margin-bottom: 12px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.card-content p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.card-footer {
+    margin-top: auto;
+}
+
+.read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    color: #6a4df5;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.read-more-btn:hover {
+    color: #8c63ff;
+}
+
+.read-more-btn .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.read-more-btn:hover .arrow {
+    transform: translateX(5px);
+}
+
+/* No Results Message */
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.no-results-content {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.no-results-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.no-results h3 {
+    font-size: 1.8rem;
+    color: #1a0050;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.no-results p {
+    color: #888;
+    font-size: 1rem;
+}
+
+/* ===== CTA SECTION ===== */
+.civ3-cta-section {
+    background: linear-gradient(135deg, #6a4df5 0%, #9b6efc 100%);
+    padding: 80px 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.cta-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.cta-container h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.cta-container p {
+    font-size: 1.15rem;
+    margin-bottom: 40px;
+    opacity: 0.95;
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.primary-btn {
+    background: #fff;
+    color: #6a4df5;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.secondary-btn {
+    background: transparent;
+    color: #fff;
+    border-color: #fff;
+}
+
+.secondary-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+    .intro-content h1 {
+        font-size: 2.3rem;
+    }
+
+    .civ3-topics-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+    }
+
+    .intro-stats {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .civ3-page-intro {
+        padding: 60px 20px 40px;
+    }
+
+    .intro-content h1 {
+        font-size: 2rem;
+    }
+
+    .intro-content p {
+        font-size: 1rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .civ3-search-filter {
+        padding: 35px 20px;
+    }
+
+    .category-tabs {
+        gap: 8px;
+    }
+
+    .tab-btn {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+
+    .tab-icon {
+        font-size: 1rem;
+    }
+
+    .tab-text {
+        display: none;
+    }
+
+    .tab-btn.active .tab-text {
+        display: inline;
+    }
+
+    .civ3-topics-section {
+        padding: 50px 20px;
+    }
+
+    .civ3-topics-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .cta-container h2 {
+        font-size: 1.8rem;
+    }
+
+    .cta-container p {
+        font-size: 1rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .cta-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro-content h1 {
+        font-size: 1.6rem;
+    }
+
+    .intro-stats {
+        gap: 30px;
+        flex-direction: column;
+    }
+
+    .search-input {
+        max-width: 100%;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+    .card-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .card-content p {
+        font-size: 0.9rem;
+    }
+
+    .read-more-btn {
+        font-size: 0.9rem;
+    }
+
+    .tab-btn {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+    }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.topic-card {
+    animation: slideInUp 0.6s ease-out;
+}
+
+.topic-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.topic-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.topic-card:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.topic-card:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.topic-card:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+/* ===== SCROLLBAR STYLING ===== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6a4df5;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8c63ff;
+}
+
