@@ -14,7 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Expand TOC
         articleToc.classList.remove('collapsed');
         desktopTocToggle.setAttribute('aria-expanded', 'true');
-        articleContent.style.marginLeft = '0';
+        if (articleContent) {
+          articleContent.style.marginLeft = '0';
+        }
       } else {
         // Collapse TOC
         articleToc.classList.add('collapsed');
@@ -103,7 +105,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Close TOC on mobile after clicking
         if (window.innerWidth <= 992) {
-          tocNav.classList.remove('expanded');
+          if (tocNav) {
+            tocNav.classList.remove('expanded');
+          }
           if (mobileTocToggle) {
             mobileTocToggle.setAttribute('aria-expanded', 'false');
           }
@@ -115,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize TOC state based on screen size
   function initTOCState() {
     if (window.innerWidth <= 992) {
-      // Mobile - collapse TOC by default
+      // Mobile - collapse TOC nav by default
       if (tocNav) {
         tocNav.classList.remove('expanded');
       }
