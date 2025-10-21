@@ -1,0 +1,153 @@
+/* Philosophy Section Styles */
+.philosophy-section {
+  background: linear-gradient(135deg, #d4e8f7, #b8dff5);
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.philosophy-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.philosophy-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.philosophy-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(60, 120, 180, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.philosophy-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(60, 120, 180, 0.4);
+}
+
+.philosophy-content {
+  width: 100%;
+  text-align: center;
+}
+
+.philosophy-content h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.philosophy-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 25px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.key-points {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 35px;
+  text-align: left;
+  display: inline-block;
+  max-width: 700px;
+}
+
+.key-points li {
+  margin-bottom: 12px;
+  font-weight: 500;
+  font-size: 1.05rem;
+  position: relative;
+  padding-left: 25px;
+  color: #2c3e50;
+}
+
+.key-points li::before {
+  content: "•";
+  color: #6b4aff;
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+}
+
+.explore-btn {
+  display: inline-block;
+  background: #6b4aff;
+  color: white;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(107, 74, 255, 0.4);
+}
+
+.explore-btn:hover {
+  background: #5133d6;
+  box-shadow: 0 6px 25px rgba(107, 74, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .philosophy-content h2 {
+    font-size: 2.2rem;
+  }
+  
+  .philosophy-content p {
+    font-size: 1.15rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .philosophy-container {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 50px;
+  }
+  
+  .philosophy-image {
+    flex: 0 0 45%;
+    justify-content: flex-start;
+  }
+  
+  .philosophy-content {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .key-points {
+    text-align: left;
+    display: block;
+  }
+}
+
+/* Animation styles */
+.philosophy-image,
+.philosophy-content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.philosophy-image.fade-in,
+.philosophy-content.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
