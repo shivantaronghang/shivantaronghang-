@@ -69,28 +69,57 @@ smoothScrollLinks.forEach(link => {
   });
 });
 
-// ===== STICKY HEADER ON SCROLL =====
+// ===== STICKY HEADER - ALWAYS VISIBLE =====
 const mainHeader = document.querySelector('.main-header');
-let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
   const currentScroll = window.pageYOffset;
 
+  // Enhanced shadow on scroll
   if (currentScroll > 100) {
-    mainHeader.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
+    mainHeader.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.2)';
   } else {
-    mainHeader.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+    mainHeader.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
   }
 
-  // Hide header on scroll down, show on scroll up
-  if (currentScroll > lastScroll && currentScroll > 500) {
-    mainHeader.style.transform = 'translateY(-100%)';
-  } else {
-    mainHeader.style.transform = 'translateY(0)';
-  }
-
-  lastScroll = currentScroll;
+  // Header always stays at top - never hides
+  mainHeader.style.transform = 'translateY(0)';
 });
+
+// ===== ACTIVE NAV LINK HIGHLIGHT =====
+const sections = document.querySelectorAll('section[id]');
+const navItems = document.querySelectorAll('.nav-links a');
+
+function updateActiveNavLink() {
+  let current = '';
+  const scrollPosition = window.pageYOffset + 200;
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    
+    if (scrollPosition >= sectionTop && scrollPosition <= sectionTop + sectionHeight) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navItems.forEach(item => {
+    item.classList.remove('active-link');
+    item.style.color = '#E0E7FF';
+    
+    const href = item.getAttribute('href');
+    if (href === `#${current}` || (href === '#hero' && current === '')) {
+      item.classList.add('active-link');
+      item.style.color = '#F59E0B';
+      item.style.fontWeight = '700';
+    } else {
+      item.style.fontWeight = '500';
+    }
+  });
+}
+
+window.addEventListener('scroll', updateActiveNavLink);
+window.addEventListener('load', updateActiveNavLink);
 
 // ===== SCROLL ANIMATIONS =====
 const observerOptions = {
@@ -117,31 +146,6 @@ animateElements.forEach(el => {
   el.style.transform = 'translateY(30px)';
   el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   observer.observe(el);
-});
-
-// ===== ACTIVE NAV LINK HIGHLIGHT =====
-const sections = document.querySelectorAll('section[id]');
-const navItems = document.querySelectorAll('.nav-links a');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-  const scrollPosition = window.pageYOffset + 200;
-
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    
-    if (scrollPosition >= sectionTop && scrollPosition <= sectionTop + sectionHeight) {
-      current = section.getAttribute('id');
-    }
-  });
-
-  navItems.forEach(item => {
-    item.style.color = '#1E3A8A';
-    if (item.getAttribute('href') === `#${current}`) {
-      item.style.color = '#F59E0B';
-    }
-  });
 });
 
 // ===== SCROLL TO TOP BUTTON =====
@@ -254,4 +258,3 @@ window.addEventListener('load', () => {
 // ===== LOG MESSAGE =====
 console.log('%c🌐 Welcome to Civilization 3.0! ', 'background: linear-gradient(135deg, #1E3A8A, #6D28D9); color: white; font-size: 20px; padding: 10px; border-radius: 5px;');
 console.log('%cBuilding the Future of Humanity', 'color: #F59E0B; font-size: 16px; font-weight: bold;');
-
