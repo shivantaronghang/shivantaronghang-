@@ -258,3 +258,17 @@ window.addEventListener('load', () => {
 // ===== LOG MESSAGE =====
 console.log('%c🌐 Welcome to Civilization 3.0! ', 'background: linear-gradient(135deg, #1E3A8A, #6D28D9); color: white; font-size: 20px; padding: 10px; border-radius: 5px;');
 console.log('%cBuilding the Future of Humanity', 'color: #F59E0B; font-size: 16px; font-weight: bold;');
+
+// Smooth scroll for explore button
+document.querySelectorAll('.explore-btn').forEach(btn => {
+  btn.addEventListener('click', e => {
+    const href = btn.getAttribute('href');
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+
+
