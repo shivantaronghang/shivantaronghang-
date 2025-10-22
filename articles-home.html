@@ -88,6 +88,198 @@
     </div>
   </section>
 
+
+  
+<!-- Blog Section -->
+  <main class="blog-main">
+    <!-- Filter & Search Controls -->
+    <section class="blog-controls">
+      <div class="filter-group">
+        <button class="filter-btn active" data-category="all">All Articles</button>
+        <button class="filter-btn" data-category="ai">AI</button>
+        <button class="filter-btn" data-category="ethics">Ethics</button>
+        <button class="filter-btn" data-category="society">Society</button>
+        <button class="filter-btn" data-category="philosophy">Philosophy</button>
+        <button class="filter-btn" data-category="sustainability">Sustainability</button>
+      </div>
+      <div class="search-box">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Search articles..." />
+      </div>
+    </section>
+
+    <!-- Blog Cards Grid -->
+    <section class="blog-list" id="blogList">
+      <!-- Blog Card 1 -->
+      <article class="blog-card" data-category="philosophy">
+        <div class="card-image">
+          <img src="images/civilization3-future.jpg" alt="Civilization 3.0 Future" />
+          <span class="category-badge">Philosophy</span>
+          <span class="date">October 15, 2025</span>
+          <span class="category">Philosophy</span>
+        </div>
+        <div class="blog-content">
+          <h2 class="card-title">Why Civilization 3.0 is the Future</h2>
+          <p class="card-description">
+            Humanity is entering a new era where technology, AI, and ethical leadership converge to shape a sustainable and equitable future for all.
+          </p>
+          <div class="card-footer">
+            <span class="read-time">5 min read</span>
+            <a href="article-civilization3.html" class="read-more">
+              Explore Article
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Blog Card 2 -->
+      <article class="blog-card" data-category="ai ethics">
+        <div class="card-image">
+          <img src="ai-governance.png" alt="AI Governance" />
+          <span class="category-badge">AI & Ethics</span>
+        </div>
+        <div class="blog-content">
+          <h2 class="card-title">The Role of AI in Ethical Governance</h2>
+          <p class="card-description">
+            How artificial intelligence can enhance democratic processes, ensure transparency, and create more responsive government systems.
+          </p>
+          <div class="card-footer">
+            <span class="read-time">7 min read</span>
+            <a href="article-ai-governance.html" class="read-more">
+              Explore Article
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Blog Card 3 -->
+      <article class="blog-card" data-category="ai society">
+        <div class="card-image">
+          <img src="images/ai-education.jpg" alt="AI and Education" />
+          <span class="category-badge">AI & Society</span>
+        </div>
+        <div class="blog-content">
+          <h2 class="card-title">AI in Education and Human Evolution</h2>
+          <p class="card-description">
+            How AI can personalize learning, enhance creativity, and prepare humanity for Civilization 3.0's knowledge-driven society.
+          </p>
+          <div class="card-footer">
+            <span class="read-time">6 min read</span>
+            <a href="article-ai-education.html" class="read-more">
+              Explore Article
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Blog Card 4 -->
+      <article class="blog-card" data-category="sustainability">
+        <div class="card-image">
+          <img src="images/sustainable-tech.jpg" alt="Sustainable Tech" />
+          <span class="category-badge">Sustainability</span>
+        </div>
+        <div class="blog-content">
+          <h2 class="card-title">Technology for Sustainable Civilization</h2>
+          <p class="card-description">
+            Exploring innovations that balance progress with planetary responsibility — the core of Civilization 3.0.
+          </p>
+          <div class="card-footer">
+            <span class="read-time">8 min read</span>
+            <a href="article-sustainable-tech.html" class="read-more">
+              Explore Article
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Blog Card 5 -->
+      <article class="blog-card" data-category="ethics philosophy">
+        <div class="card-image">
+          <img src="images/ethical-future.jpg" alt="Ethical Future" />
+          <span class="category-badge">Ethics</span>
+        </div>
+        <div class="blog-content">
+          <h2 class="card-title">Building an Ethical Foundation for Tomorrow</h2>
+          <p class="card-description">
+            Examining the moral frameworks necessary to guide humanity through rapid technological advancement and social transformation.
+          </p>
+          <div class="card-footer">
+            <span class="read-time">9 min read</span>
+            <a href="article-ethical-foundation.html" class="read-more">
+              Explore Article
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Blog Card 6 -->
+      <article class="blog-card" data-category="society ai">
+        <div class="card-image">
+          <img src="images/digital-society.jpg" alt="Digital Society" />
+          <span class="category-badge">Society</span>
+        </div>
+        <div class="blog-content">
+          <h2 class="card-title">Reimagining Society in the Digital Age</h2>
+          <p class="card-description">
+            How digital transformation is reshaping social structures, community bonds, and collective decision-making processes.
+          </p>
+          <div class="card-footer">
+            <span class="read-time">6 min read</span>
+            <a href="article-digital-society.html" class="read-more">
+              Explore Article
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Blog Card 7: Job as a Modern Trap -->
+<article class="blog-card" data-category="philosophy society">
+  <div class="card-image">
+    <img src="images/job-trap-article.jpg" alt="Job as a Modern Trap" />
+    <span class="category-badge">Society</span>
+  </div>
+
+  <div class="blog-content">
+    <h2 class="card-title">Job as a Modern Trap: A Scientific and Philosophical Analysis</h2>
+    <p class="card-description">
+      How modern employment systems subtly condition human behaviour, suppress creativity, and limit freedom — a research-based analysis connecting psychology, economy, and technology.
+    </p>
+
+    <div class="card-footer">
+      <span class="read-time">7 min read</span>
+      <a href="articles-job-as-modern-trap.html" class="read-more">
+        Explore Article
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</article>
+</section>
+  
+
   <!-- Topics -->
   <section id="topics" class="topics-section section">
     <div class="container">
