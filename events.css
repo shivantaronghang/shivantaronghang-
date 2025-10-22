@@ -1,0 +1,440 @@
+/* ===== RESET & BASE STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #F3F4F6;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== EVENTS HERO SECTION ===== */
+.events-hero {
+  position: relative;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px 80px;
+  overflow: hidden;
+}
+
+.events-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,165.3C384,171,480,149,576,133.3C672,117,768,107,864,122.7C960,139,1056,181,1152,181.3C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+  background-size: cover;
+  background-position: bottom;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.events-hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.events-hero p {
+  font-size: 1.3rem;
+  opacity: 0.95;
+  line-height: 1.8;
+}
+
+.events-hero strong {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* ===== SECTION ===== */
+.section {
+  padding: 60px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #1E3A8A;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+/* ===== EVENTS SECTION ===== */
+.events-section {
+  background: #FFFFFF;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+  margin-top: 50px;
+}
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.event-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Event Image */
+.event-image {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.event-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover .event-image img {
+  transform: scale(1.08);
+}
+
+/* Event Date Badge */
+.event-date-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #1E3A8A, #6D28D9);
+  color: #FFFFFF;
+  padding: 12px 18px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.event-date-badge .month {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.event-date-badge .day {
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.event-date-badge.past-badge {
+  background: linear-gradient(135deg, #64748B, #475569);
+}
+
+/* Event Details */
+.event-details {
+  padding: 25px;
+  text-align: left;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-details h3 {
+  font-size: 1.5rem;
+  color: #1E3A8A;
+  margin-bottom: 10px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.event-location {
+  color: #6D28D9;
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.event-details p {
+  color: #475569;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.btn-register {
+  display: inline-block;
+  background: linear-gradient(135deg, #10B981, #059669);
+  color: #FFFFFF;
+  padding: 12px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-register:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+/* ===== PAST EVENTS SECTION ===== */
+.past-events-section {
+  background: #F9FAFB;
+  border-top: 2px solid #E5E7EB;
+}
+
+.past-event-card {
+  opacity: 0.95;
+}
+
+.past-event-card:hover {
+  opacity: 1;
+  transform: translateY(-8px);
+}
+
+.past-event-badge {
+  display: inline-block;
+  background: #10B981;
+  color: #FFFFFF;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  align-self: flex-start;
+}
+
+.btn-past {
+  background: linear-gradient(135deg, #64748B, #475569);
+}
+
+.btn-past:hover {
+  background: linear-gradient(135deg, #475569, #334155);
+  box-shadow: 0 6px 20px rgba(100, 116, 139, 0.4);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablets and smaller desktops */
+@media screen and (max-width: 1024px) {
+  .events-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .events-hero p {
+    font-size: 1.2rem;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .events-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+}
+
+/* Mobile devices - Large */
+@media screen and (max-width: 768px) {
+  .events-hero {
+    padding: 70px 20px 60px;
+  }
+
+  .events-hero h1 {
+    font-size: 2rem;
+  }
+
+  .events-hero p {
+    font-size: 1.1rem;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 30px;
+  }
+
+  .event-image {
+    height: 200px;
+  }
+
+  .event-date-badge {
+    padding: 10px 15px;
+  }
+
+  .event-date-badge .month {
+    font-size: 0.85rem;
+  }
+
+  .event-date-badge .day {
+    font-size: 1.6rem;
+  }
+  
+  .event-details {
+    padding: 20px;
+  }
+  
+  .event-details h3 {
+    font-size: 1.3rem;
+  }
+  
+  .btn-register {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Mobile devices - Small */
+@media screen and (max-width: 480px) {
+  .events-hero {
+    padding: 60px 15px 50px;
+  }
+
+  .events-hero h1 {
+    font-size: 1.7rem;
+  }
+
+  .events-hero p {
+    font-size: 1rem;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+  
+  .section {
+    padding: 30px 0;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .event-image {
+    height: 180px;
+  }
+
+  .event-date-badge {
+    padding: 8px 12px;
+    top: 12px;
+    right: 12px;
+  }
+
+  .event-date-badge .month {
+    font-size: 0.8rem;
+  }
+
+  .event-date-badge .day {
+    font-size: 1.4rem;
+  }
+  
+  .event-details {
+    padding: 18px;
+  }
+  
+  .event-details h3 {
+    font-size: 1.2rem;
+  }
+  
+  .event-location {
+    font-size: 0.9rem;
+  }
+  
+  .event-details p {
+    font-size: 0.95rem;
+  }
+  
+  .btn-register {
+    padding: 11px 24px;
+    font-size: 0.95rem;
+  }
+
+  .past-event-badge {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 360px) {
+  .events-hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .events-hero p {
+    font-size: 0.95rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+  
+  .events-grid {
+    gap: 20px;
+  }
+
+  .event-image {
+    height: 160px;
+  }
+
+  .event-details h3 {
+    font-size: 1.1rem;
+  }
+}
+
