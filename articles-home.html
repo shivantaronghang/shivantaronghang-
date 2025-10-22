@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Articles | Civilization 3.0 Research Hub</title>
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="articles-home.css" />
+</head>
+<body>
+
+  <!-- Global Header -->
+  <header id="global-header"></header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Explore Knowledge for a New Civilization</h1>
+      <p>Dive into research-based articles on education, technology, ecology, economy, and governance — the pillars of Civilization 3.0.</p>
+      <a href="#latest-articles" class="btn-primary">Read Latest Articles</a>
+    </div>
+  </section>
+
+  <!-- Latest Articles -->
+  <section id="latest-articles" class="latest-articles section">
+    <div class="container">
+      <h2 class="section-title">Latest Articles</h2>
+      <div class="article-grid">
+        <div class="article-card">
+          <img src="images/article-education.jpg" alt="Education">
+          <div class="article-info">
+            <span class="category">Education</span>
+            <h3>Revolutionizing Learning for the Future</h3>
+            <p>Exploring how AI and experiential learning can reshape human education.</p>
+            <a href="article-education.html" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img src="images/article-ai.jpg" alt="AI">
+          <div class="article-info">
+            <span class="category">Artificial Intelligence</span>
+            <h3>Human-Centric AI for a Balanced Future</h3>
+            <p>How ethical AI design can align technology with human values.</p>
+            <a href="article-ai.html" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img src="images/article-ecology.jpg" alt="Ecology">
+          <div class="article-info">
+            <span class="category">Ecology</span>
+            <h3>Building a Sustainable Planetary System</h3>
+            <p>Integrating ecology with economy for long-term civilization survival.</p>
+            <a href="article-ecology.html" class="read-more">Read More →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Topics -->
+  <section id="topics" class="topics-section section">
+    <div class="container">
+      <h2 class="section-title">Explore by Topic</h2>
+      <div class="topics-grid">
+        <a href="topic-education.html" class="topic-card"><h3>Education</h3><p>Modern systems, reforms, and future learning models.</p></a>
+        <a href="topic-ai.html" class="topic-card"><h3>Artificial Intelligence</h3><p>Ethical AI, automation, and human-AI collaboration.</p></a>
+        <a href="topic-ecology.html" class="topic-card"><h3>Ecology</h3><p>Planetary balance, sustainability, and conservation.</p></a>
+        <a href="topic-economy.html" class="topic-card"><h3>Economy</h3><p>Equitable wealth systems and futuristic economies.</p></a>
+        <a href="topic-governance.html" class="topic-card"><h3>Governance</h3><p>Transparent, hybrid, and citizen-centric democracy.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscribe Section -->
+  <section id="subscribe" class="subscribe-section">
+    <div class="container">
+      <h2>Stay Updated with New Articles</h2>
+      <p>Subscribe to receive notifications and updates directly to your inbox.</p>
+      <form id="subscribe-form" class="subscribe-form">
+        <input type="email" id="emailInput" placeholder="Enter your email address" required />
+        <button type="submit" class="btn-primary">Subscribe</button>
+      </form>
+      <p id="subscribe-message" class="message"></p>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer id="global-footer"></footer>
+
+  <!-- Firebase -->
+  <script type="module" src="articles-home.js"></script>
+</body>
+</html>
