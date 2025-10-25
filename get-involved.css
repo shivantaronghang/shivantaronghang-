@@ -1,14 +1,11 @@
-* {
+/* GET INVOLVED SECTION STYLES - SCOPED */
+#get-involved,
+#donate {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
   font-family: 'Exo 2', sans-serif;
   overflow-x: hidden;
-  background: #0a0e27;
-  color: #fff;
   scroll-behavior: smooth;
 }
 
@@ -19,10 +16,12 @@ body {
   min-height: 100vh;
   padding: 100px 20px;
   overflow: hidden;
+  background: #0a0e27;
+  color: #fff;
 }
 
 /* Animated Gradient Background */
-.animated-bg {
+#get-involved .animated-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -41,7 +40,7 @@ body {
 }
 
 /* Floating Particles */
-.particles {
+#get-involved .particles {
   position: absolute;
   top: 0;
   left: 0;
@@ -51,7 +50,7 @@ body {
   z-index: 1;
 }
 
-.particle {
+#get-involved .particle {
   position: absolute;
   width: 3px;
   height: 3px;
@@ -73,14 +72,14 @@ body {
   }
 }
 
-.container {
+#get-involved .container {
   position: relative;
   z-index: 2;
   max-width: 1400px;
   margin: 0 auto;
 }
 
-.header-section {
+#get-involved .header-section {
   text-align: center;
   margin-bottom: 80px;
   animation: fadeInDown 1s ease;
@@ -97,7 +96,7 @@ body {
   }
 }
 
-.main-title {
+#get-involved .main-title {
   font-family: 'Orbitron', sans-serif;
   font-size: 3.5rem;
   font-weight: 900;
@@ -116,21 +115,21 @@ body {
   50% { background-position: 100% 50%; }
 }
 
-.subtitle {
+#get-involved .subtitle {
   font-size: 1.4rem;
   color: #a0b3d8;
   font-weight: 300;
   letter-spacing: 1px;
 }
 
-.cards-wrapper {
+#get-involved .cards-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 40px;
   perspective: 1000px;
 }
 
-.card {
+#get-involved .card {
   position: relative;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(20px);
@@ -145,7 +144,7 @@ body {
   overflow: hidden;
 }
 
-.card::before {
+#get-involved .card::before {
   content: '';
   position: absolute;
   top: -50%;
@@ -157,7 +156,7 @@ body {
   transition: opacity 0.5s ease;
 }
 
-.card:hover::before {
+#get-involved .card:hover::before {
   opacity: 1;
   animation: rotateGlow 3s linear infinite;
 }
@@ -167,19 +166,19 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-.card:hover {
+#get-involved .card:hover {
   transform: translateY(-15px) rotateX(0deg) scale(1.02);
   box-shadow: 0 30px 80px rgba(0, 245, 255, 0.3), 
               inset 0 1px 0 rgba(255, 255, 255, 0.2);
   border-color: rgba(0, 245, 255, 0.5);
 }
 
-.card.show {
+#get-involved .card.show {
   opacity: 1;
   transform: translateY(0) rotateX(0deg);
 }
 
-.card h3 {
+#get-involved .card h3 {
   font-family: 'Orbitron', sans-serif;
   font-size: 1.8rem;
   margin-bottom: 15px;
@@ -188,7 +187,7 @@ body {
   display: inline-block;
 }
 
-.card h3::after {
+#get-involved .card h3::after {
   content: '';
   position: absolute;
   bottom: -5px;
@@ -199,18 +198,18 @@ body {
   transition: width 0.4s ease;
 }
 
-.card:hover h3::after {
+#get-involved .card:hover h3::after {
   width: 100%;
 }
 
-.card p {
+#get-involved .card p {
   color: #b8c9e8;
   line-height: 1.8;
   margin-bottom: 20px;
 }
 
 /* Form Styles */
-.card form input {
+#get-involved .card form input {
   width: 100%;
   padding: 15px 20px;
   margin: 12px 0;
@@ -223,11 +222,11 @@ body {
   font-family: 'Exo 2', sans-serif;
 }
 
-.card form input::placeholder {
+#get-involved .card form input::placeholder {
   color: #6a7a9a;
 }
 
-.card form input:focus {
+#get-involved .card form input:focus {
   outline: none;
   border-color: #00f5ff;
   background: rgba(0, 245, 255, 0.05);
@@ -235,7 +234,7 @@ body {
 }
 
 /* Button with Ripple Effect */
-.btn {
+#get-involved .btn {
   position: relative;
   padding: 15px 35px;
   border: none;
@@ -252,7 +251,7 @@ body {
   box-shadow: 0 10px 30px rgba(0, 153, 255, 0.3);
 }
 
-.btn::before {
+#get-involved .btn::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -265,27 +264,27 @@ body {
   transition: width 0.6s, height 0.6s;
 }
 
-.btn:hover::before {
+#get-involved .btn:hover::before {
   width: 300px;
   height: 300px;
 }
 
-.btn:hover {
+#get-involved .btn:hover {
   transform: scale(1.05);
   box-shadow: 0 15px 40px rgba(0, 245, 255, 0.5);
 }
 
-.btn:active {
+#get-involved .btn:active {
   transform: scale(0.98);
 }
 
-.btn span {
+#get-involved .btn span {
   position: relative;
   z-index: 1;
 }
 
 /* Platform Links */
-.platform-links {
+#get-involved .platform-links {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
@@ -293,7 +292,7 @@ body {
   margin-top: 20px;
 }
 
-.platform {
+#get-involved .platform {
   position: relative;
   padding: 14px 28px;
   border-radius: 12px;
@@ -305,7 +304,7 @@ body {
   border: 2px solid transparent;
 }
 
-.platform::before {
+#get-involved .platform::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -318,27 +317,27 @@ body {
   transition: width 0.5s, height 0.5s;
 }
 
-.platform:hover::before {
+#get-involved .platform:hover::before {
   width: 300px;
   height: 300px;
 }
 
-.platform:hover {
+#get-involved .platform:hover {
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
-.telegram { background: linear-gradient(135deg, #0088cc, #006aa8); }
-.whatsapp { background: linear-gradient(135deg, #25d366, #1fa855); }
-.discord { background: linear-gradient(135deg, #7289da, #5a6ebd); }
-.messenger { background: linear-gradient(135deg, #0084ff, #0066cc); }
+#get-involved .telegram { background: linear-gradient(135deg, #0088cc, #006aa8); }
+#get-involved .whatsapp { background: linear-gradient(135deg, #25d366, #1fa855); }
+#get-involved .discord { background: linear-gradient(135deg, #7289da, #5a6ebd); }
+#get-involved .messenger { background: linear-gradient(135deg, #0084ff, #0066cc); }
 
-.restricted {
+#get-involved .restricted {
   border: 2px solid rgba(255, 87, 34, 0.5);
   background: rgba(255, 87, 34, 0.05);
 }
 
-.restricted-btn {
+#get-involved .restricted-btn {
   display: inline-block;
   margin-top: 20px;
   padding: 15px 35px;
@@ -355,7 +354,7 @@ body {
   overflow: hidden;
 }
 
-.restricted-btn::before {
+#get-involved .restricted-btn::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -368,17 +367,17 @@ body {
   transition: width 0.6s, height 0.6s;
 }
 
-.restricted-btn:hover::before {
+#get-involved .restricted-btn:hover::before {
   width: 300px;
   height: 300px;
 }
 
-.restricted-btn:hover {
+#get-involved .restricted-btn:hover {
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 15px 40px rgba(255, 87, 34, 0.5);
 }
 
-.notice {
+#get-involved .notice {
   margin-top: 15px;
   font-size: 0.9rem;
   color: #ffab91;
@@ -388,7 +387,7 @@ body {
   gap: 8px;
 }
 
-.success-message {
+#get-involved .success-message {
   color: #00f5ff;
   font-size: 1rem;
   margin-top: 15px;
@@ -406,10 +405,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #1a0e27;
+  color: #fff;
 }
 
 /* Donate Animated Background */
-.donate-animated-bg {
+#donate .donate-animated-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -417,12 +418,18 @@ body {
   height: 100%;
   background: linear-gradient(45deg, #1a0e27, #2d1b4e, #4a1942, #2d1b4e, #1a0e27);
   background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
+  animation: gradientShiftDonate 15s ease infinite;
   z-index: 0;
 }
 
+@keyframes gradientShiftDonate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 /* Donate Particles */
-.donate-particles {
+#donate .donate-particles {
   position: absolute;
   top: 0;
   left: 0;
@@ -432,7 +439,7 @@ body {
   z-index: 1;
 }
 
-.donate-particle {
+#donate .donate-particle {
   position: absolute;
   width: 4px;
   height: 4px;
@@ -454,14 +461,14 @@ body {
   }
 }
 
-.donate-container {
+#donate .donate-container {
   position: relative;
   z-index: 2;
   max-width: 900px;
   margin: 0 auto;
 }
 
-.donate-card {
+#donate .donate-card {
   position: relative;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(30px);
@@ -477,7 +484,7 @@ body {
   text-align: center;
 }
 
-.donate-card::before {
+#donate .donate-card::before {
   content: '';
   position: absolute;
   top: -50%;
@@ -489,7 +496,7 @@ body {
   transition: opacity 0.6s ease;
 }
 
-.donate-card:hover::before {
+#donate .donate-card:hover::before {
   opacity: 1;
   animation: rotateDonateGlow 4s linear infinite;
 }
@@ -499,20 +506,20 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-.donate-card:hover {
+#donate .donate-card:hover {
   transform: translateY(-20px) scale(1.02);
   box-shadow: 0 40px 100px rgba(255, 87, 34, 0.4), 
               inset 0 2px 0 rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 87, 34, 0.6);
 }
 
-.donate-card.show-donate {
+#donate .donate-card.show-donate {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
 
 /* Donate Icon */
-.donate-icon {
+#donate .donate-icon {
   width: 80px;
   height: 80px;
   margin: 0 auto 30px;
@@ -531,12 +538,12 @@ body {
   }
 }
 
-.donate-icon svg {
+#donate .donate-icon svg {
   width: 100%;
   height: 100%;
 }
 
-.donate-title {
+#donate .donate-title {
   font-family: 'Orbitron', sans-serif;
   font-size: 2.8rem;
   font-weight: 900;
@@ -545,12 +552,17 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradientText 3s ease infinite;
+  animation: gradientTextDonate 3s ease infinite;
   margin-bottom: 20px;
   text-shadow: 0 0 30px rgba(255, 87, 34, 0.3);
 }
 
-.donate-description {
+@keyframes gradientTextDonate {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+#donate .donate-description {
   font-size: 1.2rem;
   color: #d4c5e0;
   line-height: 1.8;
@@ -561,7 +573,7 @@ body {
 }
 
 /* Donate Features */
-.donate-features {
+#donate .donate-features {
   display: flex;
   justify-content: center;
   gap: 30px;
@@ -569,7 +581,7 @@ body {
   flex-wrap: wrap;
 }
 
-.feature-item {
+#donate .feature-item {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -583,18 +595,18 @@ body {
   font-weight: 600;
 }
 
-.feature-item:hover {
+#donate .feature-item:hover {
   background: rgba(255, 87, 34, 0.2);
   border-color: rgba(255, 87, 34, 0.5);
   transform: translateY(-3px);
 }
 
-.feature-icon {
+#donate .feature-icon {
   font-size: 1.4rem;
 }
 
 /* Donate Button */
-.donate-btn {
+#donate .donate-btn {
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -614,7 +626,7 @@ body {
   border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
-.donate-btn::before {
+#donate .donate-btn::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -627,27 +639,27 @@ body {
   transition: width 0.6s, height 0.6s;
 }
 
-.donate-btn:hover::before {
+#donate .donate-btn:hover::before {
   width: 400px;
   height: 400px;
 }
 
-.donate-btn:hover {
+#donate .donate-btn:hover {
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 20px 60px rgba(255, 87, 34, 0.6);
   border-color: rgba(255, 255, 255, 0.3);
 }
 
-.donate-btn:active {
+#donate .donate-btn:active {
   transform: translateY(-2px) scale(1.02);
 }
 
-.donate-btn span {
+#donate .donate-btn span {
   position: relative;
   z-index: 1;
 }
 
-.arrow-icon {
+#donate .arrow-icon {
   width: 24px;
   height: 24px;
   position: relative;
@@ -655,11 +667,11 @@ body {
   transition: transform 0.3s ease;
 }
 
-.donate-btn:hover .arrow-icon {
+#donate .donate-btn:hover .arrow-icon {
   transform: translateX(5px);
 }
 
-.donate-note {
+#donate .donate-note {
   margin-top: 25px;
   font-size: 0.9rem;
   color: #b39ddb;
@@ -671,44 +683,44 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .main-title {
+  #get-involved .main-title {
     font-size: 2.5rem;
   }
 
-  .subtitle {
+  #get-involved .subtitle {
     font-size: 1.1rem;
   }
 
-  .cards-wrapper {
+  #get-involved .cards-wrapper {
     grid-template-columns: 1fr;
   }
 
-  .card {
+  #get-involved .card {
     padding: 30px 20px;
   }
 
-  .donate-card {
+  #donate .donate-card {
     padding: 40px 25px;
   }
 
-  .donate-title {
+  #donate .donate-title {
     font-size: 2.2rem;
   }
 
-  .donate-description {
+  #donate .donate-description {
     font-size: 1.05rem;
   }
 
-  .donate-features {
+  #donate .donate-features {
     gap: 15px;
   }
 
-  .feature-item {
+  #donate .feature-item {
     font-size: 0.85rem;
     padding: 10px 16px;
   }
 
-  .donate-btn {
+  #donate .donate-btn {
     padding: 15px 35px;
     font-size: 1rem;
   }
@@ -723,17 +735,16 @@ body {
     padding: 80px 15px;
   }
 
-  .main-title {
+  #get-involved .main-title {
     font-size: 2rem;
   }
 
-  .donate-title {
+  #donate .donate-title {
     font-size: 1.8rem;
   }
 
-  .donate-icon {
+  #donate .donate-icon {
     width: 60px;
     height: 60px;
   }
 }
-
